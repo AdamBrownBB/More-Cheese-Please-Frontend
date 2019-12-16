@@ -3,7 +3,7 @@ import React from 'react';
 const CheeseContainer = () => {
     return (
         <div>
-            <p>chzes</p>
+            <p>chz container</p>
         </div>
     );
 }
