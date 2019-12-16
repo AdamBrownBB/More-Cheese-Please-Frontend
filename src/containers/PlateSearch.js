@@ -1,9 +1,15 @@
 import React from 'react';
+import PlateContainer from './PlateContainer';
+import DrinkContainer from './DrinkContainer';
+import CheeseContainer from './CheeseContainer';
 
 const PlateSearch = () => {
     return (
         <div>
-            <p>Plates</p>
+            <PlateContainer />
+            <CheeseContainer />
+            <DrinkContainer />
+
         </div>
     );
 }
