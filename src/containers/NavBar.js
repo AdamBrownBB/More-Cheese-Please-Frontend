@@ -9,8 +9,11 @@ const NavBar = () => {
     return (
         <div>
             <p>hi</p>
-            <Button as={Link} to="/home">
-                To homepage
+            <Button  active className="orange" as={Link} to="/home">
+                Create Cheese Plate
+            </Button>
+            <Button class="ui button" as={Link} to="/home">
+                Create Cheese Plate
             </Button>
         </div>
     );
