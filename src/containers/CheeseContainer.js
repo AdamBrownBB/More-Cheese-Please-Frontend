@@ -1,11 +1,12 @@
 import React from 'react';
 
-const CheeseContainer = () => {
-    return (
+class CheeseContainer extends React.Component {
+    render() {
+        return (
         <div>
             <p>chz container</p>
         </div>
-    );
+    )};
 }
 
 export default CheeseContainer;

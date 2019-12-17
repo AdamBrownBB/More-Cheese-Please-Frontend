@@ -1,11 +1,13 @@
 import React from 'react';
 
-const DrinkContainer = () => {
+class DrinkContainer extends React.Component  {
+   render() {
     return (
-        <div>
-            <p>dranks</p>
-        </div>
-    );
+            <div>
+                <p>dranks</p>
+            </div>
+        )
+    };
 }
 
 export default DrinkContainer;
