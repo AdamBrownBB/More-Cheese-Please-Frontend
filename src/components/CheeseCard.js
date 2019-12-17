@@ -4,11 +4,12 @@ import CheeseList from '../containers/CheeseList';
 
 class CheeseCard extends React.Component {
     render() {
-        console.log(this.props)
     return (
         <div>
            
-            <Card>
+            <Card onClick={() => {
+                this.props.clickHandler(this.props.cheese)
+            }}>
                 <Image src={this.props.cheese.image} wrapped ui={false} />
                 <Card.Content>
                     <Card.Header>{this.props.cheese.name}</Card.Header>
@@ -19,6 +20,7 @@ class CheeseCard extends React.Component {
                         About this chz
                     </Card.Description>
                 </Card.Content>
+                
             </Card>
 
         </div>

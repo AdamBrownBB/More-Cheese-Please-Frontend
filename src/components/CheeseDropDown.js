@@ -1,11 +1,15 @@
 import React from 'react'
 import { Dropdown } from 'semantic-ui-react'
 
+
+
+
 const cheeseFlavors = [
     {
         key: 'all',
         text: 'All',
         value: 'all'
+        
     },
     {
         key: 'mild',
@@ -29,16 +33,24 @@ const cheeseFlavors = [
     }
 
 ]
+class CheeseDropdown extends React.Component {
+
+changeHandler = (e, name) => {
+    this.props.changeFlavor(name.value)
+}
+
+    render() {
+        return (
+            <div>
+        <Dropdown onChange={this.changeHandler}
+            placeholder='Select Flavor'
+            fluid
+            selection
+            options={cheeseFlavors}
+        />
+        </div >
 
 
-
-const CheeseDropdown = () => (
-    <Dropdown
-        placeholder='Select Flavor'
-        fluid
-        selection
-        options={cheeseFlavors}
-    />
-)
-
+)}
+}
 export default CheeseDropdown;
