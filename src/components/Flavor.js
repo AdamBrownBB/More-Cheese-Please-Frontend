@@ -3,10 +3,12 @@ import { Card, Image } from 'semantic-ui-react'
 
 
 const Flavor = () => {
+    
+
     return (
         <div>
             <Card>
-                <Image src='/images/avatar/large/matthew.png' wrapped ui={false} />
+                <Image src={""}  />
                 <Card.Content>
                     <Card.Header>How this dynamic?</Card.Header>
                     <Card.Meta>

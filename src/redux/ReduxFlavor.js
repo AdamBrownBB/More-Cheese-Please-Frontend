@@ -2,19 +2,29 @@ import React from 'react';
 import { Grid } from 'semantic-ui-react'
 
 import Flavor from '../components/Flavor';
+import { connect } from 'react-redux'
 
-const FlavorGrid = ()=> {
- 
+
+const FlavorGrid = (props) => {
+    const { cheeses } = props
+    const testFunc = cheeseArr => {
+        return cheeseArr.map(cheese => {
+            return <Flavor key={cheese.id} cheese={cheese} />
+        })
+    }
+
+    const mildCheeses = cheeses.filter(cheese => cheese.flavor === "mild")
     return (
         <div>
             <Grid columns={2} divided>
                 <Grid.Row>
                     <Grid.Column>
-                       <Flavor />
+
+                        {testFunc(mildCheeses)}
                     </Grid.Column>
 
                     <Grid.Column>
-                        <Flavor/>
+                        {/* testFunc(medCheeses) */}
                     </Grid.Column>
                 </Grid.Row>
 
@@ -28,10 +38,15 @@ const FlavorGrid = ()=> {
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
-           
+
         </div>
     );
 }
 
 
-export default FlavorGrid;
+const msp = state => {
+    return { cheeses: state.cheeses }
+}
+
+
+export default connect(msp)(FlavorGrid);
