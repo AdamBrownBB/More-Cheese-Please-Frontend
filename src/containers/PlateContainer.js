@@ -20,7 +20,8 @@ class PlateContainer extends Component {
 
             <Button>Suggest Plate</Button>
             
-            <Button>Clear </Button>
+             <Button onClick={() => {
+                 this.props.clickHandler()}}>Clear</Button>
             <Button>Save</Button>
             <Button>Share</Button>                    
 

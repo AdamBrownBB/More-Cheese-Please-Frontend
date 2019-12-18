@@ -16,8 +16,6 @@ class PlateSearch extends React.Component {
     }
 
     addCheese = (cheese) => {
-        console.log(cheese)
-
         if (!this.state.mildCheese && cheese.flavor === 'mild') {
             this.setState({ mildCheese: cheese })
         } else if
@@ -31,6 +29,10 @@ class PlateSearch extends React.Component {
             this.setState({ bleuCheese: cheese })
         }
     }    
+
+    clearPlate = () => {
+        this.setState({ mildCheese: null, mediumCheese: null, boldCheese: null, bleuCheese: null})
+    }
 
     render() {
         return (
@@ -46,7 +48,8 @@ class PlateSearch extends React.Component {
                             mildCheese={this.state.mildCheese}
                             mediumCheese={this.state.mediumCheese}
                             boldCheese={this.state.boldCheese}
-                            bleuCheese={this.state.bleuCheese}/>
+                            bleuCheese={this.state.bleuCheese}
+                            clickHandler={this.clearPlate}/>
                     </Grid.Column>
 
                     <Grid.Column>

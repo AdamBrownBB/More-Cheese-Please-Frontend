@@ -6,7 +6,7 @@ class Medium extends Component {
     renderCheeseCard() {
         if (this.props.mediumCheese) {
             return <CheeseCard key={this.props.mediumCheese.id}
-                clickHandler={this.props.clickHandler}
+                // clickHandler={this.props.clickHandler}
                 cheese={this.props.mediumCheese} />
         } else {
             return null
