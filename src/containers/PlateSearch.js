@@ -41,7 +41,12 @@ class PlateSearch extends React.Component {
                     <Grid.Column>
                         <PlateContainer 
                             plates={this.props.plates}
-                            cheeses={this.props.cheeses}/>
+                            cheeses={this.props.cheeses}
+                            drinks={this.props.drinks}
+                            mildCheese={this.state.mildCheese}
+                            mediumCheese={this.state.mediumCheese}
+                            boldCheese={this.state.boldCheese}
+                            bleuCheese={this.state.bleuCheese}/>
                     </Grid.Column>
 
                     <Grid.Column>

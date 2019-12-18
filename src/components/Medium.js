@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import CheeseCard from './CheeseCard';
 
-class Mild extends Component {
+class Medium extends Component {
 
     renderCheeseCard() {
-        if (this.props.mildCheese) {
-            return <CheeseCard key={this.props.mildCheese.id}
+        if (this.props.mediumCheese) {
+            return <CheeseCard key={this.props.mediumCheese.id}
                 clickHandler={this.props.clickHandler}
-                cheese={this.props.mildCheese} />
+                cheese={this.props.mediumCheese} />
         } else {
             return null
         }
@@ -16,10 +16,10 @@ class Mild extends Component {
     render() {
         return (
             <div>
-              {this.renderCheeseCard()}
+                {this.renderCheeseCard()}
             </div>
         );
     }
 }
 
-export default Mild;
+export default Medium;
