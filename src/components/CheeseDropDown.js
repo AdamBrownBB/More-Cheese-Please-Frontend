@@ -1,9 +1,6 @@
 import React from 'react'
 import { Dropdown } from 'semantic-ui-react'
 
-
-
-
 const cheeseFlavors = [
     {
         key: 'all',
@@ -31,7 +28,6 @@ const cheeseFlavors = [
         text: 'Bleu',
         value: 'bleu'
     }
-
 ]
 class CheeseDropdown extends React.Component {
 
@@ -42,7 +38,8 @@ changeHandler = (e, name) => {
     render() {
         return (
             <div>
-        <Dropdown onChange={this.changeHandler}
+        <Dropdown 
+            onChange={this.changeHandler}
             placeholder='Select Flavor'
             fluid
             selection

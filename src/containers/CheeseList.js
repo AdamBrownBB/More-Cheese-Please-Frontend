@@ -6,7 +6,8 @@ class CheeseList extends React.Component {
    
     renderCheeseCards() {
         return this.props.cheeses.map(cheese => {
-            return <CheeseCard key={cheese.id}
+            return <CheeseCard 
+                key={cheese.id}
                 clickHandler={this.props.clickHandler}
                 cheese={cheese}
             />

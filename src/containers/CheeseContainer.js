@@ -36,6 +36,9 @@ class CheeseContainer extends React.Component {
                     return cheese.flavor === "bleu"
                 })
                 break;
+            default: filteredByFlavor = this.props.cheeses
+                break;
+
         }
         return filteredByFlavor
     }  
@@ -51,9 +54,12 @@ class CheeseContainer extends React.Component {
         <div>
             <h1>chz container</h1>
             <CheeseDropDown changeFlavor={this.changeFlavor}/>
-            <CheeseList cheeses={this.renderCheeses()}/>
+            <CheeseList cheeses={this.renderCheeses()}
+                    clickHandler={this.props.clickHandler}
+                />
         </div>
     )};
 }
 
 export default CheeseContainer;
+
