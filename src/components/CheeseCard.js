@@ -12,7 +12,7 @@ class CheeseCard extends React.Component {
                 <Card.Content>
                     <Card.Header>{this.props.cheese.name}</Card.Header>
                     <Card.Meta>
-                        <span className='date'>TBC, check classname specs</span>
+                    <span className='date'>hi {this.props.cheese.name}</span>
                     </Card.Meta>
                     <Card.Description>
                         About this chz

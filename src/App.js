@@ -21,6 +21,12 @@ class App extends Component {
     this.fetchPlates()
   }
 
+  addPlate = (newPlate) => {
+    this.setState({
+      plates: [...this.state.plates, newPlate]
+    })
+  }
+
   fetchCheeses = () => {
     fetch("http://localhost:3001/cheeses")
       .then(resp => resp.json())
@@ -52,8 +58,10 @@ class App extends Component {
     return < PlateSearch 
                         cheeses={this.state.cheeses}
                         drinks={this.state.drinks} 
-                        plates={this.state.plates} />
+                        plates={this.state.plates}
+                        addPlate={this.addPlate} />
   }  
+
 
   render() { 
     
