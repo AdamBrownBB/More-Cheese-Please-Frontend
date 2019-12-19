@@ -7,54 +7,57 @@ import CheeseContainer from './CheeseContainer';
 
 class PlateSearch extends React.Component {
 
-    // state = {
-    //     flavor: "all",
-    //     mildCheese: null,
-    //     mediumCheese: null,
-    //     boldCheese: null,
-    //     bleuCheese: null,
-    //     saveCheeses: []
-    // }
-
     state = {
         flavor: "all",
         mildCheese: null,
-        medium: null,
-        bold: null,
-        bleu: null,
+        mediumCheese: null,
+        boldCheese: null,
+        bleuCheese: null,
         saveCheeses: []
     }
 
-    //     addCheese = (cheese) => {
-    //     if (!this.state.mildCheese && cheese.flavor === 'mild') {
-    //         this.setState({ mildCheese: cheese})
-    //     } else if
-    //         (!this.state.mediumCheese && cheese.flavor === 'medium') {
-    //         this.setState({ mediumCheese: cheese })
-    //     } else if
-    //         (!this.state.boldCheese && cheese.flavor === 'bold') {
-    //         this.setState({ boldCheese: cheese })
-    //     } else if
-    //         (!this.state.bleuCheese && cheese.flavor === 'bleu') {
-    //         this.setState({ bleuCheese: cheese })
-    //     }
-    // }    
+    // state = {
+    //     flavor: "all",
+    //     mildCheese: null,
+    //     medium: null,
+    //     bold: null,
+    //     bleu: null,
+    //     saveCheeses: []
+    // }
 
-    addCheese = (cheese, flavor) => {
-        console.log("iam chz", cheese, "i am flavor", flavor)
-   
-        this.setState(
-            { 
-                saveCheeses: [...this.state.saveCheeses, cheese]
-            }, () => this.setState({
-                mildCheese: this.state.saveCheeses.filter(cheeses => cheeses.flavor === "mild")
-             })
-            )
-    
+        addCheese = (cheese) => {
+            this.setState({ saveCheeses: [...this.state.saveCheeses, cheese] })   
+        if (!this.state.mildCheese && cheese.flavor === 'mild') {
+            this.setState({ mildCheese: cheese})
+        } else if
+            (!this.state.mediumCheese && cheese.flavor === 'medium') {
+            this.setState({ mediumCheese: cheese })
+        } else if
+            (!this.state.boldCheese && cheese.flavor === 'bold') {
+            this.setState({ boldCheese: cheese })
+        } else if
+            (!this.state.bleuCheese && cheese.flavor === 'bleu') {
+            this.setState({ bleuCheese: cheese })
+        }
     }    
 
+              
+
+    // addCheese = (cheese, flavor) => {
+    //     console.log("iam chz", cheese, "i am flavor", flavor)
+   
+    //     this.setState(
+    //         { 
+    //             saveCheeses: [...this.state.saveCheeses, cheese]
+    //         }, () => this.setState({
+    //             mildCheese: this.state.saveCheeses.filter(cheeses => cheeses.flavor === "mild")
+    //          })
+    //         )
+    
+    // }    
+
     clearPlate = () => {
-        this.setState({ mildCheese: null, mediumCheese: null, boldCheese: null, bleuCheese: null})
+        this.setState({ mildCheese: null, mediumCheese: null, boldCheese: null, bleuCheese: null, saveCheeses: null})
     }
 
     savePlate = (e) => {
