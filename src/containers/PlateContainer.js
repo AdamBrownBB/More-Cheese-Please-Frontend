@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button } from 'semantic-ui-react'
 import FlavorGrid from './FlavorGrid';
-import SavedPlates from './SavedPlates';
+import DrinkContainer from './DrinkContainer';
 
 class PlateContainer extends Component {
 
@@ -24,7 +24,12 @@ class PlateContainer extends Component {
              <Button onClick={() => {this.props.saveButtonHandler()}}>Save</Button>
             <Button>Share</Button>                    
 
-            <SavedPlates/>
+            <DrinkContainer
+                 drinks={this.props.drinks}
+                 mildCheese={this.props.mildCheese}
+                 mediumCheese={this.props.mediumCheese}
+                 boldCheese={this.props.boldCheese}
+                 bleuCheese={this.props.bleuCheese}/>
         </div>)
     }
 } //end PlateContainer

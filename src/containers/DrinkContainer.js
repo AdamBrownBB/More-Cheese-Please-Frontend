@@ -15,7 +15,7 @@ class DrinkContainer extends React.Component  {
     render() {
         return (
             <div>
-                <p>Drinks</p>
+                <h1>Drinks</h1>
             {this.renderDrinkCards()}
             </div>
         )

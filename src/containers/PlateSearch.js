@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid } from 'semantic-ui-react'
 
 import PlateContainer from './PlateContainer';
-import DrinkContainer from './DrinkContainer';
+import SavedPlates from './SavedPlates';
 import CheeseContainer from './CheeseContainer';
 
 class PlateSearch extends React.Component {
@@ -16,7 +16,6 @@ class PlateSearch extends React.Component {
     }
 
     addCheese = (cheese) => {
-            // this.setState({ saveCheeses: [...this.state.saveCheeses, cheese] })   
         if (!this.state.mildCheese && cheese.flavor === 'mild') {
             this.setState({ mildCheese: cheese})
         } else if
@@ -55,6 +54,7 @@ class PlateSearch extends React.Component {
                 this.cheeseFlavorsFetch(plate, this.state.boldCheese)
                 this.cheeseFlavorsFetch(plate, this.state.bleuCheese)
             })
+            this.clearPlate()
         }
 
     cheeseFlavorsFetch(plate, cheeseFlavor) {fetch("http://localhost:3001/cheese_plates", {
@@ -74,8 +74,7 @@ class PlateSearch extends React.Component {
     })}
 
     render() {
-        return (
-        
+        return ( 
         <div>
             <Grid columns={3} >
                 <Grid.Row>
@@ -99,9 +98,7 @@ class PlateSearch extends React.Component {
                     </Grid.Column>
 
                     <Grid.Column>
-                        <DrinkContainer 
-                            drinks={this.props.drinks}
-                            mildCheese={this.state.mildCheese}/>
+                        <SavedPlates />
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
