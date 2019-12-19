@@ -18,21 +18,63 @@ class PlateSearch extends React.Component {
 
     addCheese = (cheese) => {
         if (!this.state.mildCheese && cheese.flavor === 'mild') {
-            this.setState({ mildCheese: cheese })
-        } else if
+            this.setState({ mildCheese: cheese }, () => {
+                if (this.state.selectedDrinks.length < 1) {
+                    this.setState({ selectedDrinks: this.state.mildCheese.drinks })
+                } else {
+                    let drinkState = this.handleDrinks(this.state.mildCheese)
+                    this.setState({selectedDrinks: drinkState})
+                }
+            })
+        } else if 
             (!this.state.mediumCheese && cheese.flavor === 'medium') {
             this.setState({ mediumCheese: cheese }, () => {
-                this.setState({selectedDrinks: this.state.mediumCheese.drinks})
+                if (this.state.selectedDrinks.length < 1) { 
+                    this.setState({ selectedDrinks: this.state.mediumCheese.drinks })
+                } else {
+                    let drinkState = this.handleDrinks(this.state.mediumCheese)
+                    this.setState({ selectedDrinks: drinkState })
+                }
             })
         } else if
             (!this.state.boldCheese && cheese.flavor === 'bold') {
-            this.setState({ boldCheese: cheese })
+            this.setState({ boldCheese: cheese }, () => {
+                if (this.state.selectedDrinks.length < 1) {
+                    this.setState({ selectedDrinks: this.state.boldCheese.drinks })
+                } else {
+                    let drinkState = this.handleDrinks(this.state.boldCheese)
+                    this.setState({ selectedDrinks: drinkState })
+                }
+            })
         } else if
             (!this.state.bleuCheese && cheese.flavor === 'bleu') {
-            this.setState({ bleuCheese: cheese })
+            this.setState({ bleuCheese: cheese }, () => {
+                if (this.state.selectedDrinks.length < 1) {
+                    this.setState({ selectedDrinks: this.state.bleuCheese.drinks })
+                } else {
+                    let drinkState = this.handleDrinks(this.state.bleuCheese)
+                    this.setState({ selectedDrinks: drinkState })
+                }
+            })
         }
-        
     }    
+
+    handleDrinks = (cheese) => {
+        console.log("second cheese selected drinks", cheese.drinks)
+        console.log("previous selected", this.state.selectedDrinks)
+        
+        let finalDrinks = [];
+        this.state.selectedDrinks.forEach(drink => {
+            // console.log(drink)
+            if (cheese.drinks.find(cheesedrink => cheesedrink.id === drink.id)) {
+                finalDrinks.push(drink);
+            }
+            console.log("final drinks", finalDrinks)
+                     
+        });
+        return finalDrinks
+    }
+
 
     clearPlate = () => {
         this.setState({ mildCheese: null, mediumCheese: null, boldCheese: null, bleuCheese: null, saveCheeses: null, selectedDrinks: []})
