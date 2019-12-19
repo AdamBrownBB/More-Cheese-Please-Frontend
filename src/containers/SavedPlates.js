@@ -1,5 +1,5 @@
 import React from 'react';
-import FlavorGrid from './FlavorGrid';
+// import FlavorGrid from './FlavorGrid';
 
 const SavedPlates = () => {
     return (

@@ -13,20 +13,24 @@ class FlavorGrid extends Component {
             <Grid columns={2} >
                 <Grid.Row>
                     <Grid.Column>
+                        <h3>Mild</h3>
                         <Mild mildCheese={this.props.mildCheese}/>
                     </Grid.Column>
 
                     <Grid.Column>
+                        <h3>Medium</h3>
                         <Medium mediumCheese={this.props.mediumCheese} />
                     </Grid.Column>
                 </Grid.Row>
 
                 <Grid.Row>
                     <Grid.Column>
+                        <h3>Bold</h3>
                         <Bold boldCheese={this.props.boldCheese} />
                     </Grid.Column>
 
                     <Grid.Column>
+                        <h3>Bleu</h3>
                         <Bleu bleuCheese={this.props.bleuCheese}/>
                     </Grid.Column>
                 </Grid.Row>

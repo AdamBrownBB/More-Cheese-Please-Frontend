@@ -12,12 +12,10 @@ class PlateSearch extends React.Component {
         mildCheese: null,
         mediumCheese: null,
         boldCheese: null,
-        bleuCheese: null,
-        // saveCheeses: [],
-        
+        bleuCheese: null
     }
 
-        addCheese = (cheese) => {
+    addCheese = (cheese) => {
             // this.setState({ saveCheeses: [...this.state.saveCheeses, cheese] })   
         if (!this.state.mildCheese && cheese.flavor === 'mild') {
             this.setState({ mildCheese: cheese})
@@ -32,10 +30,6 @@ class PlateSearch extends React.Component {
             this.setState({ bleuCheese: cheese })
         }
     }    
-
-              
-
- 
 
     clearPlate = () => {
         this.setState({ mildCheese: null, mediumCheese: null, boldCheese: null, bleuCheese: null, saveCheeses: null})
@@ -101,12 +95,13 @@ class PlateSearch extends React.Component {
                     <Grid.Column>
                         <CheeseContainer 
                             cheeses={this.props.cheeses}
-                            clickHandler={ ( (cheese ) => this.addCheese(cheese, cheese.flavor))}/>
+                            clickHandler={ (cheese ) => this.addCheese(cheese) }/>
                     </Grid.Column>
 
                     <Grid.Column>
                         <DrinkContainer 
-                            drinks={this.props.drinks}/>
+                            drinks={this.props.drinks}
+                            mildCheese={this.state.mildCheese}/>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
@@ -117,24 +112,3 @@ class PlateSearch extends React.Component {
 export default PlateSearch;
 
 
-    // addCheese = (cheese, flavor) => {
-    //     console.log("iam chz", cheese, "i am flavor", flavor)
-
-    //     this.setState(
-    //         { 
-    //             saveCheeses: [...this.state.saveCheeses, cheese]
-    //         }, () => this.setState({
-    //             mildCheese: this.state.saveCheeses.filter(cheeses => cheeses.flavor === "mild")
-    //          })
-    //         )
-
-    // }   
-
-        // state = {
-    //     flavor: "all",
-    //     mildCheese: null,
-    //     medium: null,
-    //     bold: null,
-    //     bleu: null,
-    //     saveCheeses: []
-    // }
