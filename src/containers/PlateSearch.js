@@ -12,15 +12,18 @@ class PlateSearch extends React.Component {
         mildCheese: null,
         mediumCheese: null,
         boldCheese: null,
-        bleuCheese: null
+        bleuCheese: null,
+        selectedDrinks: []
     }
 
     addCheese = (cheese) => {
         if (!this.state.mildCheese && cheese.flavor === 'mild') {
-            this.setState({ mildCheese: cheese})
+            this.setState({ mildCheese: cheese })
         } else if
             (!this.state.mediumCheese && cheese.flavor === 'medium') {
-            this.setState({ mediumCheese: cheese })
+            this.setState({ mediumCheese: cheese }, () => {
+                this.setState({selectedDrinks: this.state.mediumCheese.drinks})
+            })
         } else if
             (!this.state.boldCheese && cheese.flavor === 'bold') {
             this.setState({ boldCheese: cheese })
@@ -28,10 +31,11 @@ class PlateSearch extends React.Component {
             (!this.state.bleuCheese && cheese.flavor === 'bleu') {
             this.setState({ bleuCheese: cheese })
         }
+        
     }    
 
     clearPlate = () => {
-        this.setState({ mildCheese: null, mediumCheese: null, boldCheese: null, bleuCheese: null, saveCheeses: null})
+        this.setState({ mildCheese: null, mediumCheese: null, boldCheese: null, bleuCheese: null, saveCheeses: null, selectedDrinks: []})
     }
 
     savePlate = (e) => {
@@ -55,7 +59,7 @@ class PlateSearch extends React.Component {
                 this.cheeseFlavorsFetch(plate, this.state.bleuCheese)
             })
             this.clearPlate()
-        }
+    }
 
     cheeseFlavorsFetch(plate, cheeseFlavor) {fetch("http://localhost:3001/cheese_plates", {
         method: "POST",
@@ -82,11 +86,13 @@ class PlateSearch extends React.Component {
                         <PlateContainer 
                             plates={this.props.plates}
                             cheeses={this.props.cheeses}
-                            drinks={this.props.drinks}
+                            drinks={this.state.selectedDrinks}
+
                             mildCheese={this.state.mildCheese}
                             mediumCheese={this.state.mediumCheese}
                             boldCheese={this.state.boldCheese}
                             bleuCheese={this.state.bleuCheese}
+
                             clickHandler={this.clearPlate}
                             saveButtonHandler={this.savePlate}/>
                     </Grid.Column>
@@ -94,7 +100,7 @@ class PlateSearch extends React.Component {
                     <Grid.Column>
                         <CheeseContainer 
                             cheeses={this.props.cheeses}
-                            clickHandler={ (cheese ) => this.addCheese(cheese) }/>
+                            clickHandler={ (cheese) => this.addCheese(cheese) }/>
                     </Grid.Column>
 
                     <Grid.Column>

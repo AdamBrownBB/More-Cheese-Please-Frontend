@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { Button } from 'semantic-ui-react'
 import FlavorGrid from './FlavorGrid';
-import DrinkContainer from './DrinkContainer';
+import DrinkList from './DrinkList';
 
 class PlateContainer extends Component {
 
-//clear button will reset state of Flavors to null
     render() {
      return (   
-     <div>
+        <div>
             <h1>Plate Container</h1>
            
              <FlavorGrid 
@@ -24,7 +23,7 @@ class PlateContainer extends Component {
              <Button onClick={() => {this.props.saveButtonHandler()}}>Save</Button>
             <Button>Share</Button>                    
 
-            <DrinkContainer
+            <DrinkList
                  drinks={this.props.drinks}
                  mildCheese={this.props.mildCheese}
                  mediumCheese={this.props.mediumCheese}
