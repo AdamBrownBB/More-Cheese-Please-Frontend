@@ -13,20 +13,12 @@ class PlateSearch extends React.Component {
         mediumCheese: null,
         boldCheese: null,
         bleuCheese: null,
-        saveCheeses: []
+        // saveCheeses: [],
+        
     }
 
-    // state = {
-    //     flavor: "all",
-    //     mildCheese: null,
-    //     medium: null,
-    //     bold: null,
-    //     bleu: null,
-    //     saveCheeses: []
-    // }
-
         addCheese = (cheese) => {
-            this.setState({ saveCheeses: [...this.state.saveCheeses, cheese] })   
+            // this.setState({ saveCheeses: [...this.state.saveCheeses, cheese] })   
         if (!this.state.mildCheese && cheese.flavor === 'mild') {
             this.setState({ mildCheese: cheese})
         } else if
@@ -43,40 +35,49 @@ class PlateSearch extends React.Component {
 
               
 
-    // addCheese = (cheese, flavor) => {
-    //     console.log("iam chz", cheese, "i am flavor", flavor)
-   
-    //     this.setState(
-    //         { 
-    //             saveCheeses: [...this.state.saveCheeses, cheese]
-    //         }, () => this.setState({
-    //             mildCheese: this.state.saveCheeses.filter(cheeses => cheeses.flavor === "mild")
-    //          })
-    //         )
-    
-    // }    
+ 
 
     clearPlate = () => {
         this.setState({ mildCheese: null, mediumCheese: null, boldCheese: null, bleuCheese: null, saveCheeses: null})
     }
 
     savePlate = (e) => {
-        console.log("save click")
         // e.preventDefault()
 
-        // fetch("http://localhost:3001/cheese_plates", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //         "Accepts": "application/json"
-        //     },
-        //     body: JSON.stringify(this.state)
-        // })
-        //     .then(res => res.json())
-        //     .then(cheese => {
-        //         this.props.addPlate(cheese)
-        //     })
-    }
+        fetch("http://localhost:3001/plates", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accepts": "application/json"
+            },
+            body: JSON.stringify({
+                name: "ftest"
+            })
+        })
+            .then(res => res.json())
+            .then(plate => {
+                this.cheeseFlavorsFetch(plate, this.state.mildCheese)
+                this.cheeseFlavorsFetch(plate, this.state.mediumCheese)
+                this.cheeseFlavorsFetch(plate, this.state.boldCheese)
+                this.cheeseFlavorsFetch(plate, this.state.bleuCheese)
+            })
+        }
+
+    cheeseFlavorsFetch(plate, cheeseFlavor) {fetch("http://localhost:3001/cheese_plates", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accepts": "application/json"
+                    },
+        body: JSON.stringify({
+            cheese_id: cheeseFlavor.id,
+            plate_id: plate.id
+            })
+                })
+                    .then(res => res.json())
+    .then(cheesePlate => {
+        console.log(cheesePlate)
+    })}
 
     render() {
         return (
@@ -114,3 +115,26 @@ class PlateSearch extends React.Component {
 }
 
 export default PlateSearch;
+
+
+    // addCheese = (cheese, flavor) => {
+    //     console.log("iam chz", cheese, "i am flavor", flavor)
+
+    //     this.setState(
+    //         { 
+    //             saveCheeses: [...this.state.saveCheeses, cheese]
+    //         }, () => this.setState({
+    //             mildCheese: this.state.saveCheeses.filter(cheeses => cheeses.flavor === "mild")
+    //          })
+    //         )
+
+    // }   
+
+        // state = {
+    //     flavor: "all",
+    //     mildCheese: null,
+    //     medium: null,
+    //     bold: null,
+    //     bleu: null,
+    //     saveCheeses: []
+    // }
