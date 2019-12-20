@@ -10,7 +10,7 @@ class DrinkCard extends React.Component {
                 <Card.Content>
                     <Card.Header>{this.props.drink.name}</Card.Header>
                     <Card.Meta>
-                        <span className='date'>hi {this.props.drink.name}</span>
+                        <span className='date'>{this.props.drink.variety}</span>
                     </Card.Meta>
                     <Card.Description>
                         About this drink

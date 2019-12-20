@@ -95,29 +95,32 @@ class PlateSearch extends React.Component {
         })
             .then(res => res.json())
             .then(plate => {
+                console.log("chex", this.state.mediumCheese.id)
                 this.cheeseFlavorsFetch(plate, this.state.mildCheese)
                 this.cheeseFlavorsFetch(plate, this.state.mediumCheese)
                 this.cheeseFlavorsFetch(plate, this.state.boldCheese)
                 this.cheeseFlavorsFetch(plate, this.state.bleuCheese)
+                this.clearPlate()
             })
-            this.clearPlate()
     }
 
-    cheeseFlavorsFetch(plate, cheeseFlavor) {fetch("http://localhost:3001/cheese_plates", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Accepts": "application/json"
-                    },
-        body: JSON.stringify({
-            cheese_id: cheeseFlavor.id,
-            plate_id: plate.id
-            })
+    cheeseFlavorsFetch(plate, cheeseFlavor) {
+        fetch("http://localhost:3001/cheese_plates", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accepts": "application/json"
+                        },
+            body: JSON.stringify({
+                cheese_id: cheeseFlavor.id,
+                plate_id: plate.id
                 })
-                    .then(res => res.json())
-    .then(cheesePlate => {
-        console.log(cheesePlate)
-    })}
+        })
+        .then(res => res.json())
+        .then(cheesePlate => {
+            console.log(cheesePlate)
+        })
+    }
 
     render() {
         return ( 
