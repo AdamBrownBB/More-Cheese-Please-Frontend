@@ -15,6 +15,7 @@ class PlateContainer extends Component {
                 mediumCheese={this.props.mediumCheese}
                 boldCheese={this.props.boldCheese}
                 bleuCheese={this.props.bleuCheese}
+                flavorCardClick={this.props.flavorCardClick}
                 />
 
             <Button>Suggest Plate</Button>

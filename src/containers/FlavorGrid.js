@@ -14,7 +14,9 @@ class FlavorGrid extends Component {
                 <Grid.Row>
                     <Grid.Column>
                         <h3>Mild</h3>
-                        <Mild mildCheese={this.props.mildCheese}/>
+                        <Mild 
+                            mildCheese={this.props.mildCheese}
+                            clickHandler={this.props.flavorCardClick}/>
                     </Grid.Column>
 
                     <Grid.Column>

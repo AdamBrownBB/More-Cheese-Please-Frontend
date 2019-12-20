@@ -76,7 +76,7 @@ class PlateSearch extends React.Component {
     }
 
     flavorCardClick = () => {
-      
+    //   console.log("hi")
     }
 
 
@@ -154,7 +154,8 @@ class PlateSearch extends React.Component {
                     </Grid.Column>
 
                     <Grid.Column>
-                        <SavedPlates />
+                        <SavedPlates 
+                            plates={this.props.plates}/>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>

@@ -7,7 +7,8 @@ class Mild extends Component {
         if (this.props.mildCheese) {
             return <CheeseCard key={this.props.mildCheese.id}
                 // clickHandler={this.props.clickHandler}
-                cheese={this.props.mildCheese} />
+                cheese={this.props.mildCheese}
+                clickHandler={this.props.clickHandler} />
         } else {
             return null
         }
