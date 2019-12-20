@@ -17,7 +17,7 @@ class PlateSearch extends React.Component {
     }
 
     addCheese = (cheese) => {
-        if (!this.state.mildCheese && cheese.flavor === 'mild') {
+        if (cheese.flavor === 'mild') {
             this.setState({ mildCheese: cheese }, () => {
                 if (this.state.selectedDrinks.length < 1) {
                     this.setState({ selectedDrinks: this.state.mildCheese.drinks })
@@ -27,7 +27,7 @@ class PlateSearch extends React.Component {
                 }
             })
         } else if 
-            (!this.state.mediumCheese && cheese.flavor === 'medium') {
+            (cheese.flavor === 'medium') {
             this.setState({ mediumCheese: cheese }, () => {
                 if (this.state.selectedDrinks.length < 1) { 
                     this.setState({ selectedDrinks: this.state.mediumCheese.drinks })
@@ -37,7 +37,7 @@ class PlateSearch extends React.Component {
                 }
             })
         } else if
-            (!this.state.boldCheese && cheese.flavor === 'bold') {
+            (cheese.flavor === 'bold') {
             this.setState({ boldCheese: cheese }, () => {
                 if (this.state.selectedDrinks.length < 1) {
                     this.setState({ selectedDrinks: this.state.boldCheese.drinks })
@@ -47,7 +47,7 @@ class PlateSearch extends React.Component {
                 }
             })
         } else if
-            (!this.state.bleuCheese && cheese.flavor === 'bleu') {
+            (cheese.flavor === 'bleu') {
             this.setState({ bleuCheese: cheese }, () => {
                 if (this.state.selectedDrinks.length < 1) {
                     this.setState({ selectedDrinks: this.state.bleuCheese.drinks })
@@ -73,6 +73,10 @@ class PlateSearch extends React.Component {
                      
         });
         return finalDrinks
+    }
+
+    flavorCardClick = () => {
+      
     }
 
 
@@ -138,8 +142,9 @@ class PlateSearch extends React.Component {
                             boldCheese={this.state.boldCheese}
                             bleuCheese={this.state.bleuCheese}
 
-                            clickHandler={this.clearPlate}
-                            saveButtonHandler={this.savePlate}/>
+                            clearPlate={this.clearPlate}
+                            saveButtonHandler={this.savePlate}
+                            flavorCardClick={this.flavorCardClick}/>
                     </Grid.Column>
 
                     <Grid.Column>
