@@ -8,7 +8,7 @@ class PlateContainer extends Component {
     render() {
      return (   
         <div>
-            <h1>Plate Container</h1>
+            <h1>My Cheese Plate</h1>
            
              <FlavorGrid 
                 mildCheese={this.props.mildCheese}
@@ -20,7 +20,7 @@ class PlateContainer extends Component {
 
             <Button>Suggest Plate</Button>
             
-             <Button onClick={() => {this.props.clearPlate()}} >Clear</Button>
+             <Button onClick={() => {this.props.clearSelections()}} >Clear</Button>
              <Button onClick={() => {this.props.saveButtonHandler()}}>Save</Button>
             <Button>Share</Button>                    
 

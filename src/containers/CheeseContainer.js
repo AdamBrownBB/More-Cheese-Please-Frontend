@@ -52,8 +52,11 @@ class CheeseContainer extends React.Component {
     render() {
         return (
         <div>
-            <h1>chz container</h1>
+            <h1>Choose your cheeses</h1>
+            <p>You'll need one of each flavor of cheese to make a plate.</p>
+     
             <CheeseDropDown changeFlavor={this.changeFlavor}/>
+            
             <CheeseList cheeses={this.renderCheeses()}
                     clickHandler={this.props.clickHandler}
                 />

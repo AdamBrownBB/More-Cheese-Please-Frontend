@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import CheeseCard from './CheeseCard';
+import { Card, Image } from 'semantic-ui-react'
+
 
 class Bleu extends Component {
 
@@ -9,7 +11,12 @@ class Bleu extends Component {
                 // clickHandler={this.props.clickHandler}
                 cheese={this.props.bleuCheese} />
         } else {
-            return null
+            return  <Card >
+                      <Image src="https://www.civhc.org/wp-content/uploads/2018/10/question-mark.png" wrapped ui={false} />
+                      <Card.Content>
+                         <Card.Header>Add a Bleu Cheese</Card.Header>
+                      </Card.Content>
+                    </Card> 
         }
     }
 

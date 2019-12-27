@@ -15,7 +15,7 @@ class SavedPlates extends React.Component {
     render() {
         return (
             <div>
-                <h1>My Plates</h1>
+                <h1>My Saved Plates</h1>
                 {this.renderPlateCards()}
             </div>
         )

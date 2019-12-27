@@ -15,7 +15,7 @@ class DrinkList extends React.Component  {
     render() {
         return (
             <div>
-                <h1>Drinks</h1>
+                <h3>These Drinks Pair with Your Plate</h3>
             {this.renderDrinkCards()}
             </div>
         )

@@ -4,7 +4,7 @@ import { Card, Image } from 'semantic-ui-react'
 class CheeseCard extends React.Component {
     render() {
     return (
-        
+    
         <Card onClick={() => {
             this.props.clickHandler(this.props.cheese)
         }} >
@@ -18,7 +18,7 @@ class CheeseCard extends React.Component {
                         About this chz
                     </Card.Description>
                 </Card.Content>
-            </Card>
+            </Card>    
 
       
     )};
