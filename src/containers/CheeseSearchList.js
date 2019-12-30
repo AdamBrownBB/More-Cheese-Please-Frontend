@@ -16,7 +16,6 @@ class CheeseSearchList extends React.Component {
                 key={cheese.id}
                 clickHandler={this.toggleModal}
                 cheese={cheese}
-                
             />
         })
     }

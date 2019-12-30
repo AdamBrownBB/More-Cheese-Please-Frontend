@@ -22,14 +22,12 @@ class PlateContainer extends Component {
             
              <Button onClick={() => {this.props.clearSelections()}} >Clear</Button>
              <Button onClick={() => {this.props.saveButtonHandler()}}>Save</Button>
-            <Button>Share</Button>                    
+            {/* <Button>Share</Button>                     */}
 
+            <h3> These Drinks Pair with Your Plate</h3>
             <DrinkList
                  drinks={this.props.drinks}
-                 mildCheese={this.props.mildCheese}
-                 mediumCheese={this.props.mediumCheese}
-                 boldCheese={this.props.boldCheese}
-                 bleuCheese={this.props.bleuCheese}/>
+              />
         </div>)
     }
 } //end PlateContainer
