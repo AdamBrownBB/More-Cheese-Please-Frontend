@@ -17,7 +17,6 @@ class App extends Component {
   componentDidMount() {
     this.fetchCheeses()
     this.fetchDrinks()
-
   }
 
 
@@ -51,6 +50,13 @@ class App extends Component {
                         />
   }  
 
+  renderCheeseSearch = () => {
+    return < CheeseSearch
+      cheeses={this.state.cheeses}
+      drinks={this.state.drinks}
+    />
+  }  
+
 
   render() { 
     
@@ -58,7 +64,7 @@ class App extends Component {
       <Router>
         <NavBar />
         <Route path="/plates" render={this.renderPlateSearch}/>
-        <Route path="/cheeses" component={CheeseSearch}/>
+        <Route path="/cheeses" render={this.renderCheeseSearch}/>
         <Route path="/drinks" component={DrinkSearch}/>
       </Router>
        

@@ -14,6 +14,7 @@ class PlateSearch extends React.Component {
         boldCheese: null,
         bleuCheese: null,
         selectedDrinks: [],
+        currentDrinks: [],
         plates: []
     }
 
@@ -46,22 +47,33 @@ class PlateSearch extends React.Component {
         } else if 
             (cheese.flavor === 'medium') {
             this.setState({ mediumCheese: cheese }, () => {
-                if (this.state.selectedDrinks.length < 1) { 
-                    this.setState({ selectedDrinks: this.state.mediumCheese.drinks })
-                } else {
-                    let drinkState = this.handleDrinks(this.state.mediumCheese)
-                    this.setState({ selectedDrinks: drinkState })
-                }
+                this.state.mediumCheese.drinks.forEach(drink => {
+                    this.state.selectedDrinks.push(drink)
+                    let currentSelections = this.pickDrinks(this.state.selectedDrinks)
+                    this.setState({currentDrinks: currentSelections})
+                    console.log("CurrentSelction now", this.state.selectedDrinks)
+                })
+                // this.setState({ selectedDrinks: [...this.state.selectedDrinks, this.state.mediumCheese.drinks] })
+                // console.log("drinks", this.state.selectedDrinks)
+                
+                // if (this.state.selectedDrinks.length < 1) { 
+                //     this.setState({ selectedDrinks: this.state.mediumCheese.drinks })
+                // } else {
+                //     let drinkState = this.handleDrinks(this.state.mediumCheese)
+                //     this.setState({ selectedDrinks: drinkState })
+                // }
             })
         } else if
             (cheese.flavor === 'bold') {
             this.setState({ boldCheese: cheese }, () => {
-                if (this.state.selectedDrinks.length < 1) {
-                    this.setState({ selectedDrinks: this.state.boldCheese.drinks })
-                } else {
-                    let drinkState = this.handleDrinks(this.state.boldCheese)
-                    this.setState({ selectedDrinks: drinkState })
-                }
+                // if (this.state.selectedDrinks.length < 1) {
+                //     this.setState({ selectedDrinks: this.state.boldCheese.drinks })
+                // } else {
+                    this.state.boldCheese.drinks.forEach(drink => {
+                        this.state.selectedDrinks.push(drink)
+                        console.log("SD now", this.state.selectedDrinks)
+                    })
+                // }
             })
         } else if
             (cheese.flavor === 'bleu') {
@@ -74,21 +86,24 @@ class PlateSearch extends React.Component {
                 }
             })
         }
-}    
+    }    
 
     handleDrinks = (cheese) => {
-        // console.log("second cheese selected drinks", cheese.drinks)
-        // console.log("previous selected", this.state.selectedDrinks)
+        console.log("second cheese selected drinks", cheese.drinks)
+        console.log("previous selected", this.state.selectedDrinks)
         let finalDrinks = [];
-        this.state.selectedDrinks.filter(drink => -1 !== this.props.drinks.indexOf(drink))
 
-        // this.state.selectedDrinks.forEach(drink => {
-        //     if (cheese.drinks.find(cheesedrink => cheesedrink.id === drink.id)) {
-        //         finalDrinks.push(drink);
-        //     }                     
-        // })
-        ;
+        this.state.selectedDrinks.forEach(drink => {
+            if (cheese.drinks.find(cheesedrink => cheesedrink.id === drink.id)) {
+                finalDrinks.push(drink);
+            }                     
+        })
         return finalDrinks
+    }
+
+    pickDrinks = (allDrinks) => {
+        console.log("all drinks", allDrinks)
+        this.props.drinks.filter(drink => allDrinks.includes(drink))
     }
 
     flavorCardClick = () => {
@@ -166,7 +181,7 @@ class PlateSearch extends React.Component {
                         <PlateContainer 
                             plates={this.state.plates}
                             cheeses={this.props.cheeses}
-                            drinks={this.state.selectedDrinks}
+                            drinks={this.state.currentDrinks}
 
                             mildCheese={this.state.mildCheese}
                             mediumCheese={this.state.mediumCheese}
