@@ -57,9 +57,7 @@ class CheeseSearch extends React.Component {
                 <p>Choose any cheese to see what drinks pair well with it</p>
                 <CheeseDropDown changeFlavor={this.changeFlavor} />
 
-                <CheeseSearchList cheeses={this.renderCheeses()}
-                    // clickHandler={this.props.clickHandler}
-                />
+                <CheeseSearchList cheeses={this.renderCheeses()} />
             </div>
         )}
 }

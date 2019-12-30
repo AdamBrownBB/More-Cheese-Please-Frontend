@@ -6,7 +6,8 @@ import CheeseModal from '../components/CheeseModal';
 class CheeseSearchList extends React.Component {
 
     state = {
-        cheeseView: true
+        cheeseView: false,
+        activeCheese: null
     }
 
     renderCheeseCards() {
@@ -15,13 +16,15 @@ class CheeseSearchList extends React.Component {
                 key={cheese.id}
                 clickHandler={this.toggleModal}
                 cheese={cheese}
+                
             />
         })
     }
 
-    toggleModal = () => {
+    toggleModal = (cheese) => {
         this.setState({
-            cheeseView: !this.state.cheeseView
+            cheeseView: !this.state.cheeseView, 
+            activeCheese: cheese
         })
     }
 
@@ -29,7 +32,14 @@ class CheeseSearchList extends React.Component {
         return (
             <div>
                 {this.state.cheeseView &&
-                   <CheeseModal/>
+                   <CheeseModal
+                    cheese={this.state.activeCheese}
+                    cheeseView={this.state.cheeseView}
+                    handleClose={
+                        () => {
+                            this.setState({ cheeseView: false })
+                        }}
+                   />
                 }
                 {this.renderCheeseCards()}
             </div>

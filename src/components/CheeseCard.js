@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Image } from 'semantic-ui-react'
 
 class CheeseCard extends React.Component {
-    render() {
+    render(props) {
     return (
     
         <Card onClick={() => {
