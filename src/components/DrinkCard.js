@@ -6,7 +6,7 @@ class DrinkCard extends React.Component {
         return (
 
             <Card >
-                <Image src={this.props.drink.image} wrapped ui={false} />
+                <Image src={this.props.drink.image} wrapped ui={false} size="small" />
                 <Card.Content>
                     <Card.Header>{this.props.drink.name}</Card.Header>
                     <Card.Meta>

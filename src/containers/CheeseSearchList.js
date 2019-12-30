@@ -35,10 +35,10 @@ class CheeseSearchList extends React.Component {
                    <CheeseModal
                     cheese={this.state.activeCheese}
                     cheeseView={this.state.cheeseView}
-                    handleClose={
-                        () => {
+                    handleClose={ () => {
                             this.setState({ cheeseView: false })
                         }}
+                    drinks={this.state.activeCheese.drinks}    
                    />
                 }
                 {this.renderCheeseCards()}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Header, Image, Modal } from 'semantic-ui-react'
+import DrinkList from '../containers/DrinkList';
 
 
 class CheeseModal extends React.Component {
@@ -13,12 +14,11 @@ class CheeseModal extends React.Component {
                 <Modal.Content image>
                     <Image src={this.props.cheese.image} wrapped        size='medium' />
                     <Modal.Description>
-                        <Header>{this.props.cheese.name}</Header>
-                        <p>We've found the following gravatar       image associated with your e-mail
-                                    address.</p>
-                                <p>Is it okay to use this photo?</p>
+                        <Header>Pair with:</Header>
+                        <DrinkList drinks={this.props.drinks} />
+                                
                             </Modal.Description>
-                        </Modal.Content>
+                </Modal.Content>
             </Modal>
 
         )
