@@ -3,9 +3,9 @@ import CheeseCard from '../components/CheeseCard';
 
 class CheeseList extends React.Component {
     
-    state = {
-        cheeseView: true
-    }
+    // state = {
+    //     cheeseView: true
+    // }
 
     renderCheeseCards() {
         return this.props.cheeses.map(cheese => {

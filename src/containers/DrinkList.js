@@ -1,10 +1,15 @@
 import React from 'react';
 import DrinkCard from '../components/DrinkCard';
+import DrinkModal from '../components/DrinkModal';
 
 
 class DrinkList extends React.Component  {
 
-    
+    state = {
+        drinkView: false,
+        activeDrink: null
+    }
+  
     filterBeers = () => {
         let beers = [];
         this.props.drinks.forEach(drink => {
@@ -19,6 +24,7 @@ class DrinkList extends React.Component  {
         return beers.map(drink => {
             return <DrinkCard
                 key={drink.id}
+                clickHandler={this.toggleModal}
                 drink={drink}
             />
         })
@@ -39,6 +45,7 @@ class DrinkList extends React.Component  {
             return <DrinkCard
                 key={drink.id}
                 drink={drink}
+                clickHandler={this.toggleModal}
             />
         })
     }   
@@ -58,41 +65,53 @@ class DrinkList extends React.Component  {
             return <DrinkCard
                 key={drink.id}
                 drink={drink}
+                clickHandler={this.toggleModal}
             />
         })
     }   
+  
+    toggleModal = (drink) => {
 
 
-
-
-
-
-
-    renderDrinkCards() {
-        return this.props.drinks.map(drink => {
-            return <DrinkCard
-                key={drink.id}
-                drink={drink}
-            />
+        this.setState({
+            drinkView: !this.state.drinkView,
+            activeDrink: drink
         })
-    }    
-
-
-
+    }
 
     render() {
         return (
             <div>
+                {this.state.drinkView && 
+                    <DrinkModal
+                        drink={this.state.activeDrink}
+                        drinkView={this.state.drinkView}
+                        handleClose={() => {
+                            this.setState({ drinkView: false })
+                        }}
+                        cheeses={this.state.activeDrink.cheeses}
+                    />
+                }
                 <h4>Beers</h4>
                 {this.renderBeers(this.filterBeers())}
                 <h4>Reds</h4>
                 {this.renderReds(this.filterReds())}
                 <h4>Whites</h4>
                 {this.renderWhites(this.filterWhites())}
-                
             </div>
         )
     };
-}
+} //end of class
 
 export default DrinkList;
+
+
+// Not in use, but will render ALL drinks
+// renderDrinkCards() {
+//     return this.props.drinks.map(drink => {
+//         return <DrinkCard
+//             key={drink.id}
+//             drink={drink}
+//         />
+//     })
+// }  

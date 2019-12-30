@@ -5,7 +5,9 @@ class DrinkCard extends React.Component {
     render() {
         return (
 
-            <Card >
+            <Card onClick={() => {
+                this.props.clickHandler(this.props.drink)
+            }}>
                 <Image src={this.props.drink.image} wrapped ui={false} size="small" />
                 <Card.Content>
                     <Card.Header>{this.props.drink.name}</Card.Header>
