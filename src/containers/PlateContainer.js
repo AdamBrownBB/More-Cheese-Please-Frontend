@@ -18,7 +18,7 @@ class PlateContainer extends Component {
                 flavorCardClick={this.props.flavorCardClick}
                 />
 
-            <Button>Suggest Plate</Button>
+             <Button onClick={() => { this.props.suggestPlate() }}>Suggest Plate</Button>
             
              <Button onClick={() => {this.props.clearSelections()}} >Clear</Button>
              <Button onClick={() => {this.props.saveButtonHandler()}}>Save</Button>

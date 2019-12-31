@@ -90,15 +90,45 @@ class PlateSearch extends React.Component {
         return finalDrinks
     }
 
-    pickDrinks = (allDrinks) => {
-        console.log("all drinks", allDrinks)
-        this.props.drinks.filter(drink => allDrinks.includes(drink))
-    }
+    // pickDrinks = (allDrinks) => {
+    //     console.log("all drinks", allDrinks)
+    //     this.props.drinks.filter(drink => allDrinks.includes(drink))
+    // }
 
     flavorCardClick = () => {
     //   console.log("hi") this just prevents it from breaking til I figure out what to do with this click
     }
 
+    suggestPlate = () => {
+        let milds = [];
+        let mediums = [];
+        let bolds = [];
+        let bleus = [];
+        this.clearSelections()
+        this.props.cheeses.forEach(cheese => {
+            if (cheese.flavor === 'mild') {
+                milds.push(cheese);
+                this.shuffle(milds, "mildCheese")    
+            } 
+            if (cheese.flavor === 'medium') {
+                mediums.push(cheese);
+                this.shuffle(mediums, "mediumCheese")
+            } 
+            if (cheese.flavor === 'bold') {
+                bolds.push(cheese);
+                this.shuffle(bolds, "boldCheese")
+            }
+            if (cheese.flavor === 'bleu') {
+                bleus.push(cheese);
+                this.shuffle(bleus, "bleuCheese")    
+            }
+        })  
+    }
+
+    shuffle = (suggestions, flavor) => {
+        let choice = suggestions[Math.floor(Math.random() * suggestions.length)];
+        this.setState({ [flavor]: choice})
+    }
 
     clearSelections = () => {
         this.setState({ mildCheese: null, mediumCheese: null, boldCheese: null, bleuCheese: null, saveCheeses: null, selectedDrinks: []})
@@ -112,7 +142,6 @@ class PlateSearch extends React.Component {
 
     savePlate = (e) => {
         // e.preventDefault()
-
         fetch("http://localhost:3001/plates", {
             method: "POST",
             headers: {
@@ -179,6 +208,7 @@ class PlateSearch extends React.Component {
 
                             clearSelections={this.clearSelections}
                             saveButtonHandler={this.savePlate}
+                            suggestPlate={this.suggestPlate}
                             flavorCardClick={this.flavorCardClick}/>
                     </Grid.Column>
                 </Grid.Row>    
