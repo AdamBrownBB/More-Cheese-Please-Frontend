@@ -37,7 +37,7 @@ class PlateSearch extends React.Component {
     addCheese = (cheese) => {
         if (cheese.flavor === 'mild') {
             this.setState({ mildCheese: cheese }, () => {
-                if (this.state.selectedDrinks.length < 1) {
+            if (this.state.selectedDrinks.length < 1) {
                     this.setState({ selectedDrinks: this.state.mildCheese.drinks })
                 } else {
                     let drinkState = this.handleDrinks(this.state.mildCheese)
@@ -53,7 +53,8 @@ class PlateSearch extends React.Component {
                     let drinkState = this.handleDrinks(this.state.mediumCheese)
                     this.setState({ selectedDrinks: drinkState })
                 }
-            })
+            }
+            )
         } else if
             (cheese.flavor === 'bold') {
             this.setState({ boldCheese: cheese }, () => {
@@ -78,22 +79,22 @@ class PlateSearch extends React.Component {
     }    
 
     handleDrinks = (cheese) => {
-        console.log("second cheese selected drinks", cheese.drinks)
-        console.log("previous selected", this.state.selectedDrinks)
+        console.log("next cheese selected drinks", cheese.drinks)
+        console.log("prior selected", this.state.selectedDrinks)
         let finalDrinks = [];
-
+        if (this.state.selectedDrinks.length !== 0) {
         this.state.selectedDrinks.forEach(drink => {
             if (cheese.drinks.find(cheesedrink => cheesedrink.id === drink.id)) {
                 finalDrinks.push(drink);
             }                     
         })
-        return finalDrinks
+        console.log("final",finalDrinks)
+        return finalDrinks}
     }
 
-    // pickDrinks = (allDrinks) => {
-    //     console.log("all drinks", allDrinks)
-    //     this.props.drinks.filter(drink => allDrinks.includes(drink))
-    // }
+
+
+ 
 
     flavorCardClick = () => {
     //   console.log("hi") this just prevents it from breaking til I figure out what to do with this click
@@ -109,16 +110,13 @@ class PlateSearch extends React.Component {
             if (cheese.flavor === 'mild') {
                 milds.push(cheese);
                 this.shuffle(milds, "mildCheese")    
-            } 
-            if (cheese.flavor === 'medium') {
+            } if (cheese.flavor === 'medium') {
                 mediums.push(cheese);
                 this.shuffle(mediums, "mediumCheese")
-            } 
-            if (cheese.flavor === 'bold') {
+            } if (cheese.flavor === 'bold') {
                 bolds.push(cheese);
                 this.shuffle(bolds, "boldCheese")
-            }
-            if (cheese.flavor === 'bleu') {
+            } if (cheese.flavor === 'bleu') {
                 bleus.push(cheese);
                 this.shuffle(bleus, "bleuCheese")    
             }
@@ -128,6 +126,7 @@ class PlateSearch extends React.Component {
     shuffle = (suggestions, flavor) => {
         let choice = suggestions[Math.floor(Math.random() * suggestions.length)];
         this.setState({ [flavor]: choice})
+        this.handleDrinks(choice)
     }
 
     clearSelections = () => {
@@ -177,11 +176,6 @@ class PlateSearch extends React.Component {
             })
         })
         .then(res => res.json())
-        // .then(cheesePlate => {  
-        //     let newplate = [];
-        //     console.log("this cheese_plate", cheesePlate)
-        //     newPlate.push(cheesePlate)
-        // })
     }
 
 
@@ -228,3 +222,41 @@ class PlateSearch extends React.Component {
 export default PlateSearch;
 
 
+
+    // ALTERNATE LOGIC maybe try this later    
+    // findDrinkPairs = () => {
+    //     let mildDrinks = [];
+    //     let mediumDrinks = [];
+    //     if (this.state.mildCheese) {
+    //         mildDrinks.push(this.state.mildCheese.drinks)
+    //         console.log("mild", mildDrinks)
+    //     } if (this.state.mediumCheese) {
+    //         mediumDrinks.push(this.state.mediumCheese.drinks)
+    //         console.log("meds", mediumDrinks)
+    //     }
+
+    //     let allTheDrinks = mildDrinks.concat(mediumDrinks)
+    //     console.log("all now", allTheDrinks)
+    // }
+
+    //// ***********************************************
+
+    // find_duplicate_in_array = (allDrinks) => {
+    //     var object = {};
+    //     var result = [];
+
+    //     allDrinks.forEach(function (item) {
+    //         if (!object[item])
+    //             object[item] = 0;
+    //         object[item] += 1;
+    //     })
+
+    //     for (var prop in object) {
+    //         if (object[prop] >= 2) {
+    //             result.push(prop);
+    //         }
+    //     }
+    //     console.log("result", result)
+    //     return result;
+
+    // }
