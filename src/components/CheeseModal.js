@@ -17,7 +17,7 @@ class CheeseModal extends React.Component {
                         <Header>Pair with:</Header>
                         <DrinkList drinks={this.props.drinks} />
                                 
-                            </Modal.Description>
+                    </Modal.Description>
                 </Modal.Content>
             </Modal>
 

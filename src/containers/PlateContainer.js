@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button } from 'semantic-ui-react'
 import FlavorGrid from './FlavorGrid';
-import DrinkList from './DrinkList';
+import PlateDrinkList from './PlateDrinkList';
 
 class PlateContainer extends Component {
 
@@ -25,7 +25,7 @@ class PlateContainer extends Component {
             {/* <Button>Share</Button>                     */}
 
             <h3> These Drinks Pair with Your Plate</h3>
-            <DrinkList
+            <PlateDrinkList
                  drinks={this.props.drinks}
               />
         </div>)

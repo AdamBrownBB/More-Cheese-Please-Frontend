@@ -82,19 +82,15 @@ class PlateSearch extends React.Component {
         console.log("next cheese selected drinks", cheese.drinks)
         console.log("prior selected", this.state.selectedDrinks)
         let finalDrinks = [];
-        if (this.state.selectedDrinks.length !== 0) {
+       
         this.state.selectedDrinks.forEach(drink => {
             if (cheese.drinks.find(cheesedrink => cheesedrink.id === drink.id)) {
                 finalDrinks.push(drink);
-            }                     
+            }                    
         })
         console.log("final",finalDrinks)
-        return finalDrinks}
+        return finalDrinks
     }
-
-
-
- 
 
     flavorCardClick = () => {
     //   console.log("hi") this just prevents it from breaking til I figure out what to do with this click

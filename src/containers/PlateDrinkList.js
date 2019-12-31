@@ -3,13 +3,8 @@ import DrinkCard from '../components/DrinkCard';
 import DrinkModal from '../components/DrinkModal';
 
 
-class DrinkList extends React.Component  {
+class PlateDrinkList extends React.Component {
 
-    state = {
-        drinkView: false,
-        activeDrink: null
-    }
-  
     filterBeers = () => {
         let beers = [];
         this.props.drinks.forEach(drink => {
@@ -19,7 +14,7 @@ class DrinkList extends React.Component  {
         })
         return beers
     }
-    
+
     renderBeers(beers) {
         return beers.map(drink => {
             return <DrinkCard
@@ -28,7 +23,7 @@ class DrinkList extends React.Component  {
                 drink={drink}
             />
         })
-    }   
+    }
 
     filterReds = () => {
         let reds = [];
@@ -48,7 +43,7 @@ class DrinkList extends React.Component  {
                 clickHandler={this.toggleModal}
             />
         })
-    }   
+    }
 
     filterWhites = () => {
         let whites = [];
@@ -68,33 +63,20 @@ class DrinkList extends React.Component  {
                 clickHandler={this.toggleModal}
             />
         })
-    }   
-  
+    }
+
     toggleModal = (drink) => {
-        this.setState({
-            drinkView: !this.state.drinkView,
-            activeDrink: drink
-        })
+        console.log("click")
     }
 
     render() {
         return (
             <div>
-                {this.state.drinkView && 
-                    <DrinkModal
-                        drink={this.state.activeDrink}
-                        drinkView={this.state.drinkView}
-                        handleClose={() => {
-                            this.setState({ drinkView: false })
-                        }}
-                        cheeses={this.state.activeDrink.cheeses}
-                    />
-                }
+
                 <h4>Beers</h4>
                     {this.renderBeers(this.filterBeers())}
-                
                 <h4>Reds</h4>
-                  {this.renderReds(this.filterReds())}
+                   {this.renderReds(this.filterReds())}
                 <h4>Whites</h4>
                     {this.renderWhites(this.filterWhites())}
             </div>
@@ -102,7 +84,7 @@ class DrinkList extends React.Component  {
     };
 } //end of class
 
-export default DrinkList;
+export default PlateDrinkList;
 
 
 // Not in use, but will render ALL drinks
