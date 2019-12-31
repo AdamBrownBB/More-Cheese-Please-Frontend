@@ -5,7 +5,10 @@ import CheeseList from '../containers/CheeseList';
 
 class DrinkModal extends React.Component {
 
-    noClick(){}
+    noClick(){
+        //I'm just killing the click so this doesn't break
+    }
+
     render() {
         return (
 
@@ -17,7 +20,7 @@ class DrinkModal extends React.Component {
                     {this.props.drink.name}
                 </Modal.Header>
                 <Modal.Content image>
-                    <Image src={this.props.drink.image} wrapped size='medium' />
+                    <Image src={this.props.drink.image} wrapped size='small' />
                     <Modal.Description>
                         <Header>Pair with:</Header>
                         <CheeseList cheeses={this.props.cheeses} 

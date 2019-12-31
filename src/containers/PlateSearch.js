@@ -14,7 +14,6 @@ class PlateSearch extends React.Component {
         boldCheese: null,
         bleuCheese: null,
         selectedDrinks: [],
-        currentDrinks: [],
         plates: []
     }
 
@@ -34,6 +33,7 @@ class PlateSearch extends React.Component {
     // adds a cheese into each flavor in grid, also shows paired drinks by filtering down
     // filter only looks at last two associations, need to account for all
     // probably a good candidate for refactoring , 2x    
+
     addCheese = (cheese) => {
         if (cheese.flavor === 'mild') {
             this.setState({ mildCheese: cheese }, () => {
@@ -47,33 +47,22 @@ class PlateSearch extends React.Component {
         } else if 
             (cheese.flavor === 'medium') {
             this.setState({ mediumCheese: cheese }, () => {
-                this.state.mediumCheese.drinks.forEach(drink => {
-                    this.state.selectedDrinks.push(drink)
-                    let currentSelections = this.pickDrinks(this.state.selectedDrinks)
-                    this.setState({currentDrinks: currentSelections})
-                    console.log("CurrentSelction now", this.state.selectedDrinks)
-                })
-                // this.setState({ selectedDrinks: [...this.state.selectedDrinks, this.state.mediumCheese.drinks] })
-                // console.log("drinks", this.state.selectedDrinks)
-                
-                // if (this.state.selectedDrinks.length < 1) { 
-                //     this.setState({ selectedDrinks: this.state.mediumCheese.drinks })
-                // } else {
-                //     let drinkState = this.handleDrinks(this.state.mediumCheese)
-                //     this.setState({ selectedDrinks: drinkState })
-                // }
+                if (this.state.selectedDrinks.length < 1) {
+                    this.setState({ selectedDrinks: this.state.mediumCheese.drinks })
+                } else {
+                    let drinkState = this.handleDrinks(this.state.mediumCheese)
+                    this.setState({ selectedDrinks: drinkState })
+                }
             })
         } else if
             (cheese.flavor === 'bold') {
             this.setState({ boldCheese: cheese }, () => {
-                // if (this.state.selectedDrinks.length < 1) {
-                //     this.setState({ selectedDrinks: this.state.boldCheese.drinks })
-                // } else {
-                    this.state.boldCheese.drinks.forEach(drink => {
-                        this.state.selectedDrinks.push(drink)
-                        console.log("SD now", this.state.selectedDrinks)
-                    })
-                // }
+                if (this.state.selectedDrinks.length < 1) {
+                    this.setState({ selectedDrinks: this.state.boldCheese.drinks })
+                } else {
+                    let drinkState = this.handleDrinks(this.state.boldCheese)
+                    this.setState({ selectedDrinks: drinkState })
+                }
             })
         } else if
             (cheese.flavor === 'bleu') {
@@ -181,7 +170,7 @@ class PlateSearch extends React.Component {
                         <PlateContainer 
                             plates={this.state.plates}
                             cheeses={this.props.cheeses}
-                            drinks={this.state.currentDrinks}
+                            drinks={this.state.selectedDrinks}
 
                             mildCheese={this.state.mildCheese}
                             mediumCheese={this.state.mediumCheese}

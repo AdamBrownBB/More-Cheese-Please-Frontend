@@ -8,7 +8,7 @@ class DrinkCard extends React.Component {
             <Card onClick={() => {
                 this.props.clickHandler(this.props.drink)
             }}>
-                <Image src={this.props.drink.image} wrapped ui={false} size="small" />
+                <Image src={this.props.drink.image}  size='small' />
                 <Card.Content>
                     <Card.Header>{this.props.drink.name}</Card.Header>
                     <Card.Meta>
