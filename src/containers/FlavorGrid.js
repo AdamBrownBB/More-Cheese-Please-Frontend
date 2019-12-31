@@ -21,19 +21,22 @@ class FlavorGrid extends Component {
 
                     <Grid.Column>
                         <h3>Medium</h3>
-                        <Medium mediumCheese={this.props.mediumCheese} />
+                        <Medium mediumCheese={this.props.mediumCheese}
+                                clickHandler={this.props.flavorCardClick} />
                     </Grid.Column>
                 </Grid.Row>
 
                 <Grid.Row>
                     <Grid.Column>
                         <h3>Bold</h3>
-                        <Bold boldCheese={this.props.boldCheese} />
+                        <Bold boldCheese={this.props.boldCheese}
+                              clickHandler={this.props.flavorCardClick} />
                     </Grid.Column>
 
                     <Grid.Column>
                         <h3>Bleu</h3>
-                        <Bleu bleuCheese={this.props.bleuCheese}/>
+                        <Bleu bleuCheese={this.props.bleuCheese}
+                            clickHandler={this.props.flavorCardClick}/>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>

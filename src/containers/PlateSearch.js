@@ -92,10 +92,7 @@ class PlateSearch extends React.Component {
         return finalDrinks
     }
 
-    flavorCardClick = () => {
-    //   console.log("hi") this just prevents it from breaking til I figure out what to do with this click
-    }
-
+    
     suggestPlate = () => {
         let milds = [];
         let mediums = [];
@@ -118,21 +115,26 @@ class PlateSearch extends React.Component {
             }
         })  
     }
-
+    
     shuffle = (suggestions, flavor) => {
         let choice = suggestions[Math.floor(Math.random() * suggestions.length)];
-        this.setState({ [flavor]: choice})
         this.handleDrinks(choice)
+        this.setState({ [flavor]: choice})
+        
     }
-
+    
     clearSelections = () => {
         this.setState({ mildCheese: null, mediumCheese: null, boldCheese: null, bleuCheese: null, saveCheeses: null, selectedDrinks: []})
     }
-
+    
     addPlate = (newPlate) => {
         this.setState({
             plates: [...this.state.plates, newPlate]
         })
+    }
+    
+    flavorCardClick = () => { 
+      console.log("click FC")
     }
 
     savePlate = (e) => {

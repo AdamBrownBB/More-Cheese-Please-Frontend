@@ -8,7 +8,7 @@ class Bold extends Component {
     renderCheeseCard() {
         if (this.props.boldCheese) {
             return <CheeseCard key={this.props.boldCheese.id}
-                // clickHandler={this.props.clickHandler}
+                clickHandler={this.props.clickHandler}
                 cheese={this.props.boldCheese} />
         } else {
             return  <Card >
