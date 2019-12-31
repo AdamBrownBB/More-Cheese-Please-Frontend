@@ -1,6 +1,5 @@
 import React from 'react';
 import DrinkCard from '../components/DrinkCard';
-import DrinkModal from '../components/DrinkModal';
 
 
 class PlateDrinkList extends React.Component {

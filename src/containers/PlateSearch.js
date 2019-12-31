@@ -82,14 +82,15 @@ class PlateSearch extends React.Component {
         console.log("next cheese selected drinks", cheese.drinks)
         console.log("prior selected", this.state.selectedDrinks)
         let finalDrinks = [];
-       
+      
         this.state.selectedDrinks.forEach(drink => {
             if (cheese.drinks.find(cheesedrink => cheesedrink.id === drink.id)) {
                 finalDrinks.push(drink);
             }                    
         })
-        console.log("final",finalDrinks)
-        return finalDrinks
+            console.log("final",finalDrinks)
+            return finalDrinks
+        
     }
 
     
@@ -118,9 +119,7 @@ class PlateSearch extends React.Component {
     
     shuffle = (suggestions, flavor) => {
         let choice = suggestions[Math.floor(Math.random() * suggestions.length)];
-        this.handleDrinks(choice)
-        this.setState({ [flavor]: choice})
-        
+        this.addCheese(choice)
     }
     
     clearSelections = () => {
@@ -134,7 +133,7 @@ class PlateSearch extends React.Component {
     }
     
     flavorCardClick = () => { 
-      console.log("click FC")
+      // fixes breaking in FlavorGrid
     }
 
     savePlate = (e) => {
