@@ -1,5 +1,6 @@
 import React from 'react';
 import CheeseCard from '../components/CheeseCard';
+import { Card } from 'semantic-ui-react'
 
 class CheeseList extends React.Component {
     
@@ -20,7 +21,9 @@ class CheeseList extends React.Component {
     render() {
         return (
             <div>
+                <Card.Group itemsPerRow={5}>
                 {this.renderCheeseCards()}
+                </Card.Group>
             </div>
         )
     }
