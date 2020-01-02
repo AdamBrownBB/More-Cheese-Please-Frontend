@@ -12,9 +12,9 @@ class DrinkCard extends React.Component {
                  this.props.clickHandler(this.props.drink)
                 }}>
                     
-                <Image src={this.props.drink.image} wrapped size='small' />
+                <Image src={this.props.drink.image} wrapped ui={false} size='small' />
                 <Card.Content>
-                    <Card.Header>{this.props.drink.name}</Card.Header>
+                    <Card.Header wrapped>{this.props.drink.name}</Card.Header>
     
                     <Card.Description>
                     

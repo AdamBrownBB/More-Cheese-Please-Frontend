@@ -21,7 +21,7 @@ class CheeseList extends React.Component {
     render() {
         return (
             <div >
-                <Card.Group itemsPerRow={5}>
+                <Card.Group itemsPerRow={4}>
                 {this.renderCheeseCards()}
                 </Card.Group>
             </div>

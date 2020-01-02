@@ -42,7 +42,7 @@ class CheeseSearchList extends React.Component {
                     drinks={this.state.activeCheese.drinks}    
                    />
                 }
-                <Card.Group itemsPerRow={5}>
+                <Card.Group itemsPerRow={4}>
                     {this.renderCheeseCards()}
                 </Card.Group>
                 </Grid>

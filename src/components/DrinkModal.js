@@ -13,7 +13,8 @@ class DrinkModal extends React.Component {
         return (
 
             <Modal open={this.props.drinkView}
-                onClick={this.props.handleClose}>
+                onClick={this.props.handleClose}
+                >
                
                
                 <Modal.Header>
