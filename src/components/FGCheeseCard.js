@@ -1,18 +1,14 @@
 import React from 'react';
 import { Card, Image } from 'semantic-ui-react'
 
-class FFCheeseCard extends React.Component {
+class FGCheeseCard extends React.Component {
     render(props) {
         return (
 
-            <Card onClick={() => {
-                this.props.clickHandler(this.props.cheese)
-            }} >
-                <Image src={this.props.cheese.image} wrapped={true} size='medium' />
+            <Card>
+                <Image src={this.props.cheese.image} wrapped ui={false} size='tiny' />
                 <Card.Content>
                     <Card.Header>{this.props.cheese.name}</Card.Header>
-
-
                 </Card.Content>
             </Card>
 
@@ -21,4 +17,4 @@ class FFCheeseCard extends React.Component {
     };
 }
 
-export default FFCheeseCard;
+export default FGCheeseCard;

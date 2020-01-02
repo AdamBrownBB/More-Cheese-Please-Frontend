@@ -1,4 +1,5 @@
-import React, { Component } from 'react'; import { Grid } from 'semantic-ui-react'
+import React, { Component } from 'react'; 
+import { Grid } from 'semantic-ui-react'
 
 import Mild from '../components/Mild';
 import Medium from '../components/Medium';
@@ -16,7 +17,7 @@ class PlateFlavorGrid extends Component {
                             <p>Mild</p>
                             <Mild
                                 mildCheese={this.props.mildCheese}
-                                clickHandler={this.props.flavorCardClick} />
+                                flavorCardClick={this.props.flavorCardClick} />
                         </Grid.Column>
 
                         <Grid.Column>

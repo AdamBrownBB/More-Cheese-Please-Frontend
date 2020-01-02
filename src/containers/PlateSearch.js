@@ -208,7 +208,8 @@ class PlateSearch extends React.Component {
 
                     <Grid.Column>
                         <SavedPlates 
-                            plates={this.state.plates}/>
+                            plates={this.state.plates}
+                                flavorCardClick={this.flavorCardClick}/>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>

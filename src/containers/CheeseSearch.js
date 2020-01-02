@@ -1,6 +1,8 @@
 import React from 'react';
 import CheeseDropDown from '../components/CheeseDropDown';
 import CheeseSearchList from './CheeseSearchList';
+import {  Grid, GridRow } from 'semantic-ui-react'
+
 
 class CheeseSearch extends React.Component {
 
@@ -53,11 +55,17 @@ class CheeseSearch extends React.Component {
     render() {  
         return (
             <div>
+                <Grid >
+                    <GridRow>
+                        <Grid.Column >
                 <h3>Pick a Cheese</h3>
                 <p>Choose any cheese to see what drinks pair well with it</p>
                 <CheeseDropDown changeFlavor={this.changeFlavor} />
 
                 <CheeseSearchList cheeses={this.renderCheeses()} />
+                            </Grid.Column>
+                    </GridRow>
+                </Grid>
             </div>
         )}
 }

@@ -13,11 +13,11 @@ class CheeseCard extends React.Component {
                     <Card.Header>{this.props.cheese.name}</Card.Header>
                     
                     <Card.Description>
-                        Flavor: {this.props.cheese.flavor} 
+                    <b>Flavor: </b> {this.props.cheese.flavor} 
                     </Card.Description>
-                <Card.Description>
-                        Milk: {this.props.cheese.milk} 
-                </Card.Description>
+                {/* <Card.Description>
+                    <b>Milk: </b> {this.props.cheese.milk} 
+                </Card.Description> */}
                 </Card.Content>
             </Card>    
     

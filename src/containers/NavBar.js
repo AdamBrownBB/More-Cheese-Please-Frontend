@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import { Button } from 'semantic-ui-react'
-import { Menu } from 'semantic-ui-react'
+import { Menu, Sticky } from 'semantic-ui-react'
 
 
 class NavBar extends Component {
@@ -15,14 +14,15 @@ class NavBar extends Component {
        const { activeItem } = this.state
        
        return (
-        //    <div class="ui fixed top sticky">
-            <Menu pointing >
+        <Sticky>
+            <Menu pointing size="large" color='orange'>
                 <Menu.Item
                     as={Link} to="/plates"
                     name='plates'
                     active={activeItem === 'plates'}
                     content='Create Cheese Plate'
                     onClick={this.handleItemClick}
+                    color='orange'
                 />
                 <Menu.Item
                     as={Link} to="/cheeses"
@@ -38,15 +38,10 @@ class NavBar extends Component {
                     content='Search Drinks'
                     onClick={this.handleItemClick}
                 />
-
-               
-
-               
-           
             </Menu>
-                // </div>
+           </Sticky>
             )
-        }
+    }
 }
 
 export default NavBar;

@@ -1,6 +1,8 @@
 import React from 'react';
 import DrinkCard from '../components/DrinkCard';
 import DrinkModal from '../components/DrinkModal';
+import { Grid, Header } from 'semantic-ui-react'
+
 
 
 class DrinkList extends React.Component  {
@@ -79,8 +81,9 @@ class DrinkList extends React.Component  {
 
     render() {
         return (
-            <div>
-                {this.state.drinkView && 
+        <div>
+            
+                {this.state.drinkView &&
                     <DrinkModal
                         drink={this.state.activeDrink}
                         drinkView={this.state.drinkView}
@@ -90,27 +93,33 @@ class DrinkList extends React.Component  {
                         cheeses={this.state.activeDrink.cheeses}
                     />
                 }
-                <h4>Beers</h4>
-                    {this.renderBeers(this.filterBeers())}
+               
+                <Grid celled>
+                 
+                        <Grid.Column width={5}>
+                            <h3>Beers</h3>
+                            {this.renderBeers(this.filterBeers())}
+                        </Grid.Column>
+                   
+                 
+                        <Grid.Column width={5}>
+                            <h3>Reds</h3>
+                            {this.renderReds(this.filterReds())}
+                        </Grid.Column>
+                   
+                 
+                        <Grid.Column width={5}>
+                            <h3>Whites</h3>
+                            {this.renderWhites(this.filterWhites())}
+                        </Grid.Column>
+                   
+                </Grid>    
+        </div>
                 
-                <h4>Reds</h4>
-                  {this.renderReds(this.filterReds())}
-                <h4>Whites</h4>
-                    {this.renderWhites(this.filterWhites())}
-            </div>
+                
+  
         )
     };
 } //end of class
 
 export default DrinkList;
-
-
-// Not in use, but will render ALL drinks
-// renderDrinkCards() {
-//     return this.props.drinks.map(drink => {
-//         return <DrinkCard
-//             key={drink.id}
-//             drink={drink}
-//         />
-//     })
-// }  

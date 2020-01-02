@@ -5,6 +5,8 @@ import { Card, Image } from 'semantic-ui-react'
 
 class Mild extends Component {
 
+
+
     renderCheeseCard() {
         if (this.props.mildCheese) {
             return <FGCheeseCard 

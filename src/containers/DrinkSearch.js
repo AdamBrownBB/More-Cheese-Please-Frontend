@@ -7,7 +7,7 @@ class DrinkSearch extends React.Component {
     return (
         <div>
             <h3>Pick a Drink</h3>
-            <p>Choose any drink to see what cheeses pair well with it</p>
+            <p>Choose a drink to see what cheeses pair well with it</p>
             <DrinkList
                 drinks={this.props.drinks}/>
         </div>

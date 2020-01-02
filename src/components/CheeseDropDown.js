@@ -6,7 +6,6 @@ const cheeseFlavors = [
         key: 'all',
         text: 'All',
         value: 'all'
-        
     },
     {
         key: 'mild',
@@ -41,7 +40,7 @@ changeHandler = (e, name) => {
         <Dropdown 
             onChange={this.changeHandler}
             placeholder='Select Flavor'
-            fluid
+            button
             selection
             options={cheeseFlavors}
         />
