@@ -57,7 +57,7 @@ class CheeseSearch extends React.Component {
             <div>
                 <Grid >
                     <GridRow>
-                        <Grid.Column >
+                        <Grid.Column width={10}>
                 <h3>Pick a Cheese</h3>
                 <p>Choose any cheese to see what drinks pair well with it</p>
                 <CheeseDropDown changeFlavor={this.changeFlavor} />

@@ -7,8 +7,10 @@ class PlateCard extends Component {
     render() {
         return (
             <div>
-                <Grid  columns={5}>
+                <Grid  >
+                   
                 <PlateFlavorGrid
+                
                     mildCheese={this.props.plate.cheeses[0]}
                     mediumCheese={this.props.plate.cheeses[1]}
                     boldCheese={this.props.plate.cheeses[2]}
@@ -16,6 +18,7 @@ class PlateCard extends Component {
 
                     flavorCardClick={this.props.flavorCardClick}
                 />
+              
                 </Grid>
             </div>
         )

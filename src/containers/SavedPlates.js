@@ -1,5 +1,6 @@
 import React from 'react';
 import PlateCard from './PlateCard';
+import { Card } from 'semantic-ui-react';
 
 
 class SavedPlates extends React.Component {
@@ -20,9 +21,9 @@ class SavedPlates extends React.Component {
         return (
             <div>
                 <h1>My Saved Plates</h1>
-             
+                <Card.Group itemsPerRow={3}>
                 {this.renderPlateCards()}
-               
+                </Card.Group>
             </div>
         )
     };

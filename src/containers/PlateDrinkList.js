@@ -1,5 +1,6 @@
 import React from 'react';
-import DrinkCard from '../components/DrinkCard';
+import MiniDrinkCard from '../components/MiniDrinkCard';
+import { Card, Image } from 'semantic-ui-react'
 
 
 class PlateDrinkList extends React.Component {
@@ -16,7 +17,7 @@ class PlateDrinkList extends React.Component {
 
     renderBeers(beers) {
         return beers.map(drink => {
-            return <DrinkCard
+            return <MiniDrinkCard
                 key={drink.id}
                 clickHandler={this.toggleModal}
                 drink={drink}
@@ -36,7 +37,7 @@ class PlateDrinkList extends React.Component {
 
     renderReds(reds) {
         return reds.map(drink => {
-            return <DrinkCard
+            return <MiniDrinkCard
                 key={drink.id}
                 drink={drink}
                 clickHandler={this.toggleModal}
@@ -56,7 +57,7 @@ class PlateDrinkList extends React.Component {
 
     renderWhites(whites) {
         return whites.map(drink => {
-            return <DrinkCard
+            return <MiniDrinkCard
                 key={drink.id}
                 drink={drink}
                 clickHandler={this.toggleModal}
@@ -73,11 +74,17 @@ class PlateDrinkList extends React.Component {
             <div>
 
                 <h4>Beers</h4>
-                    {this.renderBeers(this.filterBeers())}
+                    <Card.Group itemsPerRow={3}>
+                     {this.renderBeers(this.filterBeers())}
+                    </Card.Group>
                 <h4>Reds</h4>
-                   {this.renderReds(this.filterReds())}
+                    <Card.Group itemsPerRow={3}>
+                      {this.renderReds(this.filterReds())}
+                    </Card.Group>
                 <h4>Whites</h4>
-                    {this.renderWhites(this.filterWhites())}
+                    <Card.Group itemsPerRow={3}>
+                       {this.renderWhites(this.filterWhites())}
+                    </Card.Group>
             </div>
         )
     };

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Grid, GridColumn } from 'semantic-ui-react'
+import { Button, Grid, Divider } from 'semantic-ui-react'
 import FlavorGrid from './FlavorGrid';
 import PlateDrinkList from './PlateDrinkList';
 
@@ -7,7 +7,7 @@ class PlateContainer extends Component {
 
     render() {
      return (   
-        <div>
+        <div >
             <h1>My Cheese Plate</h1>
            
              <FlavorGrid 
@@ -17,7 +17,8 @@ class PlateContainer extends Component {
                 bleuCheese={this.props.bleuCheese}
                 flavorCardClick={this.props.flavorCardClick}
                 />
-             <Grid fixed padded>
+             <Divider hidden></Divider>
+             <Grid relaxed padded >
              <Button onClick={() => { this.props.suggestPlate() }}>Suggest Plate</Button>
                    
 
