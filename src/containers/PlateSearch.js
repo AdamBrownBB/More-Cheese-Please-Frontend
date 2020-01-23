@@ -22,7 +22,7 @@ class PlateSearch extends React.Component {
     }
 
     fetchPlates = () => {
-        fetch("http://localhost:3001/plates")
+        fetch("https://more-cheese-please.herokuapp.com/plates")
             .then(resp => resp.json())
             .then(data =>
                 this.setState({
@@ -138,7 +138,7 @@ class PlateSearch extends React.Component {
 
     savePlate = (e) => {
         // e.preventDefault()
-        fetch("http://localhost:3001/plates", {
+        fetch("https://more-cheese-please.herokuapp.com/plates", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -161,7 +161,7 @@ class PlateSearch extends React.Component {
 
     cheeseFlavorsFetch(plate, cheeseFlavor) {
         
-        fetch("http://localhost:3001/cheese_plates", {
+        fetch("https://more-cheese-please.herokuapp.com/cheese_plates", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

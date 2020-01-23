@@ -28,7 +28,7 @@ class NavBar extends Component {
                     as={Link} to="/cheeses"
                     name='cheeses'
                     active={activeItem === 'cheeses'}
-                    content='Search Cheses'
+                    content='Search Cheeses'
                     onClick={this.handleItemClick}
                 />
                 <Menu.Item
