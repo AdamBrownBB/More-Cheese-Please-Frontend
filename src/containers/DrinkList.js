@@ -81,7 +81,7 @@ class DrinkList extends React.Component  {
 
     render() {
         return (
-        <div>
+            <div className="card-container">
             
                 {this.state.drinkView &&
                     <DrinkModal
@@ -95,9 +95,8 @@ class DrinkList extends React.Component  {
                 }
                
                 <Grid celled>
-                 
                         <Grid.Column width={5}>
-                            <h1>Beers</h1>
+                            <h3>Beers</h3>
                             {this.renderBeers(this.filterBeers())}
                         </Grid.Column>
                    

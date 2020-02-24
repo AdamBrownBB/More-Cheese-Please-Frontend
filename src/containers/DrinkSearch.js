@@ -1,15 +1,22 @@
 import React from 'react';
 import DrinkList from './DrinkList';
+import { Grid } from 'semantic-ui-react'
+
 
 class DrinkSearch extends React.Component {
     
     render() {
     return (
         <div>
-            <h1>Pick a Drink</h1>
-            <p>Choose a drink to see what cheeses pair well with it</p>
-            <DrinkList
-                drinks={this.props.drinks}/>
+            <Grid celled>
+                <Grid.Row>
+                    <Grid.Column width={10}>
+                     <h1>Pick a Drink</h1>
+                      <p>Choose a drink to see what cheeses pair well with it</p>
+                    <DrinkList drinks={this.props.drinks}/>
+                    </Grid.Column>
+                </Grid.Row>
+            </Grid>    
         </div>
     )};
 }

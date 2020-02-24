@@ -1,7 +1,7 @@
 import React from 'react';
 import CheeseDropDown from '../components/CheeseDropDown';
 import CheeseSearchList from './CheeseSearchList';
-import {  Grid, GridRow } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 
 
 class CheeseSearch extends React.Component {
