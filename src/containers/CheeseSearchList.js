@@ -1,6 +1,7 @@
 import React from 'react';
 import CheeseCard from '../components/CheeseCard';
 import CheeseModal from '../components/CheeseModal';
+import CheeseDropDown from '../components/CheeseDropDown';
 import { Card, Grid } from 'semantic-ui-react'
 
 
@@ -31,7 +32,7 @@ class CheeseSearchList extends React.Component {
     render() {
         return (
             <div>
-                <Grid celled>
+                <Grid >
                 {this.state.cheeseView &&
                    <CheeseModal
                     cheese={this.state.activeCheese}
@@ -40,11 +41,19 @@ class CheeseSearchList extends React.Component {
                             this.setState({ cheeseView: false })
                         }}
                     drinks={this.state.activeCheese.drinks}    
-                   />
+                   />  
                 }
-                <Card.Group itemsPerRow={4}>
-                    {this.renderCheeseCards()}
-                </Card.Group>
+                <Grid.Row>
+                    <Grid.Column>
+                        <h1>Pick a Cheese</h1>
+                        <p>Choose any cheese to see what drinks pair well with it</p>
+                        <CheeseDropDown changeFlavor={this.props.changeFlavor} />
+
+                        <Card.Group itemsPerRow={6}>
+                            {this.renderCheeseCards()}
+                        </Card.Group>
+                    </Grid.Column>
+                </Grid.Row>
                 </Grid>
             </div>
         )

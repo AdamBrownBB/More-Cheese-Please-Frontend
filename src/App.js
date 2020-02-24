@@ -22,7 +22,7 @@ class App extends Component {
 
 
   fetchCheeses = () => {
-    fetch("https://more-cheese-please.herokuapp.com/cheeses")
+    fetch("http://localhost:3000/cheeses")
       .then(resp => resp.json())
       .then(data =>
         this.setState({
@@ -31,7 +31,7 @@ class App extends Component {
   }
 
   fetchDrinks = () => {
-    fetch("https://more-cheese-please.herokuapp.com/drinks")
+    fetch("http://localhost:3000/drinks")
       .then(resp => resp.json())
       .then(data =>
         this.setState({

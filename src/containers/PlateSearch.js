@@ -22,7 +22,7 @@ class PlateSearch extends React.Component {
     }
 
     fetchPlates = () => {
-        fetch("https://more-cheese-please.herokuapp.com/plates")
+        fetch("http://localhost:3000/plates")
             .then(resp => resp.json())
             .then(data =>
                 this.setState({
@@ -203,7 +203,7 @@ class PlateSearch extends React.Component {
                             flavorCardClick={this.flavorCardClick}/>
                     </Grid.Column>
                 </Grid.Row>    
-                <Grid.Row>
+                {/* <Grid.Row>
 
 
                     <Grid.Column>
@@ -211,7 +211,7 @@ class PlateSearch extends React.Component {
                             plates={this.state.plates}
                                 flavorCardClick={this.flavorCardClick}/>
                     </Grid.Column>
-                </Grid.Row>
+                </Grid.Row> */}
             </Grid>
         </div>
     )};

@@ -97,7 +97,7 @@ class DrinkList extends React.Component  {
                 <Grid celled>
                  
                         <Grid.Column width={5}>
-                            <h3>Beers</h3>
+                            <h1>Beers</h1>
                             {this.renderBeers(this.filterBeers())}
                         </Grid.Column>
                    

@@ -22,9 +22,9 @@ class PlateContainer extends Component {
              <Button onClick={() => { this.props.suggestPlate() }}>Suggest Plate</Button>
                    
 
-             <Button onClick={() => {this.props.clearSelections()}} >Clear</Button>
+             <Button onClick={() => {this.props.clearSelections()}} >Clear Selections</Button>
                   
-             <Button onClick={() => {this.props.saveButtonHandler()}}>Save</Button>
+             {/* <Button onClick={() => {this.props.saveButtonHandler()}}>Save</Button> */}
                  
             {/* <Button>Share</Button>                     */}
              </Grid>

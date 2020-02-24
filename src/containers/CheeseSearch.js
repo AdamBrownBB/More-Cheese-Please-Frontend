@@ -55,16 +55,14 @@ class CheeseSearch extends React.Component {
     render() {  
         return (
             <div>
-                <Grid >
-                    <GridRow>
+                <Grid celled>
+                    <Grid.Row>
                         <Grid.Column width={10}>
-                <h3>Pick a Cheese</h3>
-                <p>Choose any cheese to see what drinks pair well with it</p>
-                <CheeseDropDown changeFlavor={this.changeFlavor} />
-
-                <CheeseSearchList cheeses={this.renderCheeses()} />
-                            </Grid.Column>
-                    </GridRow>
+                            <CheeseSearchList 
+                                cheeses={this.renderCheeses()} 
+                                changeFlavor={this.changeFlavor}/>
+                        </Grid.Column>
+                    </Grid.Row>
                 </Grid>
             </div>
         )}
