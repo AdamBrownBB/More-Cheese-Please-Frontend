@@ -186,7 +186,7 @@ class PlateSearch extends React.Component {
                             cheeses={this.props.cheeses}
                             clickHandler={(cheese) => this.addCheese(cheese)} />
                     </Grid.Column>
-                    <Grid.Column width={5}>
+                        <Grid.Column className='plates' width={6}>
                         <PlateContainer 
                             plates={this.state.plates}
                             cheeses={this.props.cheeses}

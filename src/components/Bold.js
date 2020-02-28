@@ -12,7 +12,7 @@ class Bold extends Component {
                 cheese={this.props.boldCheese} />
         } else {
             return  <Card >
-                <Image src="https://www.civhc.org/wp-content/uploads/2018/10/question-mark.png" wrapped ui={false} centered size='small'  />
+                <Image src="https://www.civhc.org/wp-content/uploads/2018/10/question-mark.png" centered size='small'  />
                      
                     </Card> 
         }

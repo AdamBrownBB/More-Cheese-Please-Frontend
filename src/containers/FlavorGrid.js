@@ -10,7 +10,7 @@ class FlavorGrid extends Component {
     render() {
     return (
         <div>
-            <Grid columns={2} >
+            <Grid columns={2} relaxed padded >
                 <Grid.Row>
                     <Grid.Column>
                         <h3>Mild</h3>

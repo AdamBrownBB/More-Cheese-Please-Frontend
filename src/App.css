@@ -48,4 +48,8 @@ display: flex;
 align-items: stretch; 
 }
 
+.plates {
+  background-color: rgb(195, 231, 231);
+}
+
 

@@ -12,7 +12,7 @@ class MiniDrinkCard extends React.Component {
                         this.props.clickHandler(this.props.drink)
                     }}>
 
-                        <Image src={this.props.drink.image} wrapped ui={true} size='mini' floated='left'/>
+                        <Image src={this.props.drink.image}  ui={true} size='mini' floated='left'/>
                     <Card.Content>
                         {/* <Card.Header ></Card.Header> */}
 

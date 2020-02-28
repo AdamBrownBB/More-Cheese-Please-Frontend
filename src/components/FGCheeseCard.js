@@ -1,17 +1,17 @@
 import React from 'react';
-import { Card, Image } from 'semantic-ui-react'
+import { Card, Image, Header } from 'semantic-ui-react'
 
 class FGCheeseCard extends React.Component {
     render(props) {
         return (
-
+           
             <Card>
-                <Image src={this.props.cheese.image} wrapped ui={false} size='tiny' />
+                <Image src={this.props.cheese.image}  size='small' centered />
                 <Card.Content>
-                    <Card.Header>{this.props.cheese.name}</Card.Header>
+                    <Header>{this.props.cheese.name}</Header>
                 </Card.Content>
-            </Card>
-
+             </Card>
+          
 
         )
     };

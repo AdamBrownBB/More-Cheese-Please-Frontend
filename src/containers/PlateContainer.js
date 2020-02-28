@@ -11,6 +11,7 @@ class PlateContainer extends Component {
             <h1>My Cheese Plate</h1>
            
              <FlavorGrid 
+                
                 mildCheese={this.props.mildCheese}
                 mediumCheese={this.props.mediumCheese}
                 boldCheese={this.props.boldCheese}

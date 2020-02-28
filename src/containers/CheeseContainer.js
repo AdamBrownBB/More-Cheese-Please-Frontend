@@ -1,6 +1,8 @@
 import React from 'react';
 import CheeseDropDown from '../components/CheeseDropDown'
 import CheeseList from './CheeseList';
+import { Divider } from 'semantic-ui-react'
+
 
 class CheeseContainer extends React.Component {
 
@@ -56,7 +58,7 @@ class CheeseContainer extends React.Component {
             <p>You'll need one of each flavor of cheese to make a plate.</p>
      
             <CheeseDropDown changeFlavor={this.changeFlavor}/>
-            
+                <Divider hidden></Divider>
             <CheeseList cheeses={this.renderCheeses()}
                     clickHandler={this.props.clickHandler}
                 />

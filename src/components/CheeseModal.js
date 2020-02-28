@@ -12,7 +12,7 @@ class CheeseModal extends React.Component {
                     {this.props.cheese.name}
                 </Modal.Header>
                 <Modal.Content image>
-                    <Image src={this.props.cheese.image} wrapped        size='medium' />
+                    <Image src={this.props.cheese.image} wrapped  size='medium' />
                     <Modal.Description>
                         <Header>Pair with:</Header>
                         <DrinkList drinks={this.props.drinks} />

@@ -2,7 +2,7 @@ import React from 'react';
 import CheeseCard from '../components/CheeseCard';
 import CheeseModal from '../components/CheeseModal';
 import CheeseDropDown from '../components/CheeseDropDown';
-import { Card, Grid } from 'semantic-ui-react'
+import { Card, Grid, Divider } from 'semantic-ui-react'
 
 
 class CheeseSearchList extends React.Component {
@@ -48,6 +48,7 @@ class CheeseSearchList extends React.Component {
                         <h1>Pick a Cheese</h1>
                         <p>Choose any cheese to see what drinks pair well with it</p>
                         <CheeseDropDown changeFlavor={this.props.changeFlavor} />
+                        <Divider hidden></Divider>
 
                         <Card.Group itemsPerRow={6}>
                             {this.renderCheeseCards()}

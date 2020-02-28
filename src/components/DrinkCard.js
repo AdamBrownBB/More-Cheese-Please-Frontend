@@ -4,7 +4,7 @@ import { Card, Image } from 'semantic-ui-react'
 class DrinkCard extends React.Component {
     render() {
         return (
-            <Card.Group itemsPerRow={2}>
+            <Card.Group itemsPerRow={1}>
                
           
             <Card 
@@ -12,9 +12,11 @@ class DrinkCard extends React.Component {
                  this.props.clickHandler(this.props.drink)
                 }}>
                     
-                <Image src={this.props.drink.image} wrapped ui={false} size='small' />
+                <Image src={this.props.drink.image} 
+                 
+                size='medium' />
                 <Card.Content>
-                    <Card.Header wrapped>{this.props.drink.name}</Card.Header>
+                    <Card.Header textAlign='center' >{this.props.drink.name}</Card.Header>
     
                     <Card.Description>
                     
