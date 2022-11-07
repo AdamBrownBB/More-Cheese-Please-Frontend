@@ -22,12 +22,13 @@ class PlateSearch extends React.Component {
     }
 
     fetchPlates = () => {
-        fetch("http://localhost:3000/plates")
-            .then(resp => resp.json())
-            .then(data =>
-                this.setState({
-                    plates: data
-                }))
+        fetch("https://more-cheese.onrender.com/plates")
+          .then((resp) => resp.json())
+          .then((data) =>
+            this.setState({
+              plates: data,
+            })
+          );
     }
 
     // adds a cheese into each flavor in grid, also shows paired drinks by filtering down
