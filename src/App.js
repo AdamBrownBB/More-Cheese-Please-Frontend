@@ -22,21 +22,23 @@ class App extends Component {
 
 
   fetchCheeses = () => {
-    fetch("http://localhost:3000/cheeses")
-      .then(resp => resp.json())
-      .then(data =>
+    fetch("https://more-cheese.onrender.com/cheeses")
+      .then((resp) => resp.json())
+      .then((data) =>
         this.setState({
-          cheeses: data
-        }))
+          cheeses: data,
+        })
+      );
   }
 
   fetchDrinks = () => {
-    fetch("http://localhost:3000/drinks")
-      .then(resp => resp.json())
-      .then(data =>
+    fetch("https://more-cheese.onrender.com/drinks")
+      .then((resp) => resp.json())
+      .then((data) =>
         this.setState({
-          drinks: data
-        }))
+          drinks: data,
+        })
+      );
   }
 
 
