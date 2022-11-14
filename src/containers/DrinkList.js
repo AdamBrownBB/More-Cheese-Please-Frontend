@@ -1,7 +1,7 @@
 import React from 'react';
 import DrinkCard from '../components/DrinkCard';
 import DrinkModal from '../components/DrinkModal';
-import { Grid, Header } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 
 
 
@@ -12,18 +12,27 @@ class DrinkList extends React.Component  {
         activeDrink: null
     }
   
-    filterBeers = () => {
-        let beers = [];
+    filterDrinks = () => {
+        const sortedDrinks = {
+            beers: [],
+            reds: [],
+            whites: []
+        }
+        
         this.props.drinks.forEach(drink => {
-            if (drink.variety === 'beer') {
-                beers.push(drink);
+            if (drink.variety === "beer") {
+              sortedDrinks.beers.push(drink);
+            } else if (drink.variety === "white") {
+              sortedDrinks.whites.push(drink);
+            } else if (drink.variety === "red") {
+              sortedDrinks.reds.push(drink);
             }
         })
-        return beers
+        return sortedDrinks
     }
     
-    renderDrinks(drink) {
-        return drink.map(drink => {
+    renderDrinks(drinks) {
+        return drinks.map(drink => {
             return <DrinkCard
                 key={drink.id}
                 clickHandler={this.toggleModal}
@@ -31,28 +40,7 @@ class DrinkList extends React.Component  {
             />
         })
     }   
-
-    filterReds = () => {
-        let reds = [];
-        this.props.drinks.forEach(drink => {
-            if (drink.variety === 'red') {
-                reds.push(drink);
-            }
-        })
-        return reds
-    }
-
-    filterWhites = () => {
-        let whites = [];
-        this.props.drinks.forEach(drink => {
-            if (drink.variety === 'white') {
-                whites.push(drink);
-            }
-        })
-        return whites
-    }
-
-  
+ 
     toggleModal = (drink) => {
         this.setState({
             drinkView: !this.state.drinkView,
@@ -78,19 +66,19 @@ class DrinkList extends React.Component  {
                 <Grid celled>
                         <Grid.Column width={5}>
                             <h3>Beers</h3>
-                            {this.renderDrinks(this.filterBeers())}
+                            {this.renderDrinks(this.filterDrinks().beers)}
                         </Grid.Column>
                    
                  
                         <Grid.Column width={5}>
                             <h3>Reds</h3>
-                            {this.renderDrinks(this.filterReds())}
+                            {this.renderDrinks(this.filterDrinks().reds)}
                         </Grid.Column>
                    
                  
                         <Grid.Column width={5}>
                             <h3>Whites</h3>
-                            {this.renderDrinks(this.filterWhites())}
+                            {this.renderDrinks(this.filterDrinks().whites)}
                         </Grid.Column>
                    
                 </Grid>    
