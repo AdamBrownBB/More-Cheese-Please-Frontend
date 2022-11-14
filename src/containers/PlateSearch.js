@@ -4,8 +4,12 @@ import { Grid } from "semantic-ui-react";
 import PlateContainer from "./PlateContainer";
 import SavedPlates from "./SavedPlates";
 import CheeseContainer from "./CheeseContainer";
+// import { config } from "./constants/constants";
 
+// const url = config.url.API_URL
 class PlateSearch extends React.Component {
+
+  
   state = {
     flavor: "all",
     mildCheese: null,
@@ -16,12 +20,13 @@ class PlateSearch extends React.Component {
     plates: [],
   };
 
+
   componentDidMount() {
     this.fetchPlates();
   }
 
   fetchPlates = () => {
-    fetch("https://more-cheese.onrender.com/plates")
+    fetch("http://localhost:3001/plates")
       .then((resp) => resp.json())
       .then((data) =>
         this.setState({

@@ -6,14 +6,17 @@ import NavBar from './containers/NavBar';
 import PlateSearch from './containers/PlateSearch';
 import CheeseSearch from './containers/CheeseSearch';
 import DrinkSearch from './containers/DrinkSearch';
+import { config } from './constants/constants'
 
+// const url = config.url.API_URL
 class App extends Component {
 
+  
   state = {
     cheeses: [],
     drinks: []
   }
-
+  
   componentDidMount() {
     this.fetchCheeses()
     this.fetchDrinks()
@@ -22,7 +25,7 @@ class App extends Component {
 
 
   fetchCheeses = () => {
-    fetch("https://more-cheese.onrender.com/cheeses")
+    fetch("http://localhost:3001/cheeses")
       .then((resp) => resp.json())
       .then((data) =>
         this.setState({
@@ -32,7 +35,7 @@ class App extends Component {
   }
 
   fetchDrinks = () => {
-    fetch("https://more-cheese.onrender.com/drinks")
+    fetch("http://localhost:3001/drinks")
       .then((resp) => resp.json())
       .then((data) =>
         this.setState({
@@ -71,6 +74,7 @@ class App extends Component {
     
     return (
       <Router>
+      
         <NavBar />
         <Route path="/plates" render={this.renderPlateSearch}/>
         <Route path="/cheeses" render={this.renderCheeseSearch}/>

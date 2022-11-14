@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component} from 'react';
 import DrinkList from './DrinkList';
 import { Grid } from 'semantic-ui-react'
 
 
-class DrinkSearch extends React.Component {
+class DrinkSearch extends Component {
     
     render() {
     return (

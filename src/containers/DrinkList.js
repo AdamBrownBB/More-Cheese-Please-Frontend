@@ -22,8 +22,8 @@ class DrinkList extends React.Component  {
         return beers
     }
     
-    renderBeers(beers) {
-        return beers.map(drink => {
+    renderDrinks(drink) {
+        return drink.map(drink => {
             return <DrinkCard
                 key={drink.id}
                 clickHandler={this.toggleModal}
@@ -42,16 +42,6 @@ class DrinkList extends React.Component  {
         return reds
     }
 
-    renderReds(reds) {
-        return reds.map(drink => {
-            return <DrinkCard
-                key={drink.id}
-                drink={drink}
-                clickHandler={this.toggleModal}
-            />
-        })
-    }   
-
     filterWhites = () => {
         let whites = [];
         this.props.drinks.forEach(drink => {
@@ -62,15 +52,6 @@ class DrinkList extends React.Component  {
         return whites
     }
 
-    renderWhites(whites) {
-        return whites.map(drink => {
-            return <DrinkCard
-                key={drink.id}
-                drink={drink}
-                clickHandler={this.toggleModal}
-            />
-        })
-    }   
   
     toggleModal = (drink) => {
         this.setState({
@@ -97,19 +78,19 @@ class DrinkList extends React.Component  {
                 <Grid celled>
                         <Grid.Column width={5}>
                             <h3>Beers</h3>
-                            {this.renderBeers(this.filterBeers())}
+                            {this.renderDrinks(this.filterBeers())}
                         </Grid.Column>
                    
                  
                         <Grid.Column width={5}>
                             <h3>Reds</h3>
-                            {this.renderReds(this.filterReds())}
+                            {this.renderDrinks(this.filterReds())}
                         </Grid.Column>
                    
                  
                         <Grid.Column width={5}>
                             <h3>Whites</h3>
-                            {this.renderWhites(this.filterWhites())}
+                            {this.renderDrinks(this.filterWhites())}
                         </Grid.Column>
                    
                 </Grid>    
