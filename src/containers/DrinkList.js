@@ -12,7 +12,7 @@ class DrinkList extends React.Component  {
         activeDrink: null
     }
   
-    filterDrinks = () => {
+    sortDrinks = () => {
         const sortedDrinks = {
             beers: [],
             reds: [],
@@ -66,19 +66,19 @@ class DrinkList extends React.Component  {
                 <Grid celled>
                         <Grid.Column width={5}>
                             <h3>Beers</h3>
-                            {this.renderDrinks(this.filterDrinks().beers)}
+                            {this.renderDrinks(this.sortDrinks().beers)}
                         </Grid.Column>
                    
                  
                         <Grid.Column width={5}>
                             <h3>Reds</h3>
-                            {this.renderDrinks(this.filterDrinks().reds)}
+                            {this.renderDrinks(this.sortDrinks().reds)}
                         </Grid.Column>
                    
                  
                         <Grid.Column width={5}>
                             <h3>Whites</h3>
-                            {this.renderDrinks(this.filterDrinks().whites)}
+                            {this.renderDrinks(this.sortDrinks().whites)}
                         </Grid.Column>
                    
                 </Grid>    

@@ -58,13 +58,13 @@ class App extends Component {
   renderCheeseSearch = () => {
     return < CheeseSearch
       cheeses={this.state.cheeses}
-      drinks={this.state.drinks}
+      // drinks={this.state.drinks}
     />
   }  
 
   renderDrinkSearch = () => {
     return < DrinkSearch
-      cheeses={this.state.cheeses}
+      // cheeses={this.state.cheeses}
       drinks={this.state.drinks}
     />
   }  
