@@ -8,8 +8,6 @@ import CheeseContainer from "./CheeseContainer";
 
 // const url = config.url.API_URL
 class PlateSearch extends React.Component {
-
-  
   state = {
     flavor: "all",
     mildCheese: null,
@@ -20,13 +18,12 @@ class PlateSearch extends React.Component {
     plates: [],
   };
 
-
   componentDidMount() {
     this.fetchPlates();
   }
 
   fetchPlates = () => {
-    fetch("http://localhost:3001/plates")
+    fetch("http://localhost:3000/plates")
       .then((resp) => resp.json())
       .then((data) =>
         this.setState({

@@ -25,7 +25,7 @@ class App extends Component {
 
 
   fetchCheeses = () => {
-    fetch("http://localhost:3001/cheeses")
+    fetch("http://localhost:3000/cheeses")
       .then((resp) => resp.json())
       .then((data) =>
         this.setState({
@@ -35,7 +35,7 @@ class App extends Component {
   }
 
   fetchDrinks = () => {
-    fetch("http://localhost:3001/drinks")
+    fetch("http://localhost:3000/drinks")
       .then((resp) => resp.json())
       .then((data) =>
         this.setState({
