@@ -182,14 +182,8 @@ class PlateSearch extends React.Component {
   render() {
     return (
       <div>
-        <Grid celled>
+        <Grid className="outer" celled container stackable columns={2}>
           <Grid.Row>
-            <Grid.Column width={10}>
-              <CheeseContainer
-                cheeses={this.props.cheeses}
-                clickHandler={(cheese) => this.addCheese(cheese)}
-              />
-            </Grid.Column>
             <Grid.Column className="plates" width={6}>
               <PlateContainer
                 plates={this.state.plates}
@@ -203,6 +197,12 @@ class PlateSearch extends React.Component {
                 saveButtonHandler={this.savePlate}
                 suggestPlate={this.suggestPlate}
                 flavorCardClick={this.flavorCardClick}
+              />
+            </Grid.Column>
+            <Grid.Column className="Cheese Choices" stackable width={10}>
+              <CheeseContainer
+                cheeses={this.props.cheeses}
+                clickHandler={(cheese) => this.addCheese(cheese)}
               />
             </Grid.Column>
           </Grid.Row>
