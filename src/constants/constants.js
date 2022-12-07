@@ -20,7 +20,7 @@ function getConfig() {
     console.log("returning NON-DEV** config");
     return prod;
   }
-  // console.log("config is", config);
+  console.log("config is", config);
 }
 
 export const config = process.env.REACT_APP_ENV === "development" ? local : prod;
