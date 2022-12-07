@@ -6,9 +6,10 @@ import NavBar from "./containers/NavBar";
 import PlateSearch from "./containers/PlateSearch";
 import CheeseSearch from "./containers/CheeseSearch";
 import DrinkSearch from "./containers/DrinkSearch";
-import { config } from "./constants/constants";
+// import { config } from "./constants/constants";
+// const url = config.url.API_URL;
 
-const url = config.url.API_URL;
+const url = "http://localhost:3000";
 class App extends Component {
   state = {
     cheeses: [],
