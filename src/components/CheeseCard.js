@@ -13,7 +13,7 @@ class CheeseCard extends React.Component {
         <Image src={this.props.cheese.image} size="medium" />
         <Card.Content>
           <Card.Header>{this.props.cheese.name}</Card.Header>
-          <StyledHeader>{this.props.cheese.name}</StyledHeader>
+          
 
           <Card.Description>
             <b>Flavor:</b> {this.props.cheese.flavor}
