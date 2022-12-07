@@ -182,7 +182,7 @@ class PlateSearch extends React.Component {
   render() {
     return (
       <div>
-        <Grid className="outer" celled container stackable columns={2}>
+        <Grid className="outer" divided stackable columns={2}>
           <Grid.Row>
             <Grid.Column className="plates" width={6}>
               <PlateContainer
@@ -199,7 +199,7 @@ class PlateSearch extends React.Component {
                 flavorCardClick={this.flavorCardClick}
               />
             </Grid.Column>
-            <Grid.Column className="Cheese Choices" stackable width={10}>
+            <Grid.Column className="Cheese Choices" width={10}>
               <CheeseContainer
                 cheeses={this.props.cheeses}
                 clickHandler={(cheese) => this.addCheese(cheese)}
