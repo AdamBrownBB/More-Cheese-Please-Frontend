@@ -17,15 +17,15 @@ class DrinkModal extends React.Component {
                 >
                
                
-                <Modal.Header>
+                <Header>
                     {this.props.drink.name}
-                </Modal.Header>
+                </Header>
                 <Modal.Content image>
-                    <Image src={this.props.drink.image} wrapped size='medium' />
+                    <Image src={this.props.drink.image}  size='medium' />
                     <Modal.Description>
                         <Header>Pair with:</Header>
                         <CheeseList cheeses={this.props.cheeses} 
-                            clickHandler={this.noClick}
+                            // clickHandler={this.noClick}
                         />
 
                     </Modal.Description>
